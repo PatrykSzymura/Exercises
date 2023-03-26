@@ -1,0 +1,2 @@
+|0|name|fhaldi|PESEL|1|
+|1|name|n;lzf|PESEL|6|
