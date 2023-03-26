@@ -5,7 +5,7 @@
 
 using namespace std;
 
-void game2Players(int sizePlansza){
+void game2Players3x3(int sizePlansza){
     vInt plansza = createMatrix(sizePlansza,sizePlansza);
     int i   = 0,
         col = 0,
@@ -27,6 +27,7 @@ void game2Players(int sizePlansza){
         } while (!canIput(plansza,row,col));// jeśli nie moge postawić spytaj się ponownie
         plansza[row][col] = insert;
         i++;
+        cout << " " << winGame(plansza) << " \n";
     } while (0 == winGame(plansza));
     displayMatrix(plansza);
     whoWins = winGame(plansza);  
@@ -38,7 +39,7 @@ void game2Players(int sizePlansza){
 int main(int argc, char const *argv[])
 {
     srand(time(NULL));
-    game2Players(5);
+    game2Players3x3(3);
 
     
     return 0;
