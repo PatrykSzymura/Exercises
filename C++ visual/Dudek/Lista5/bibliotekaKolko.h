@@ -2,6 +2,7 @@
 #include <time.h>
 #include <vector>
 #include <cmath>
+#include <algorithm>
 
 using namespace std;
 using vInt = vector<vector<int>>;
@@ -24,10 +25,12 @@ vInt createPlansza(int rows, int cols) {
 // funkcja wyswietla planszę
 void displayPlansza(vInt plansza){
     system("cls");
+
     for (vector<int> x : plansza)
     {
         for (int y : x)
         {
+           
             if      (y ==  1) cout << "|x" ;
             else if (y == -1) cout << "|o";
             else if (y ==  0) cout << "| "; 
@@ -106,7 +109,8 @@ bool winVertical(vInt plansza){
         //else if (abs(sum) == size - 2 && size > 3) break;
         if      ((checkO ==3 || checkX == 3) && size == 3)             break;
         else if ((checkO == warunek || checkX == warunek) && size > 3) break;
-                 
+        checkO = 0;
+        checkX = 0;       
 
         sum = 0;
     }
@@ -149,7 +153,8 @@ bool winHorizontal(vInt plansza){
         //else if (abs(sum) == size - 2 && size > 3) break;
         if      ((checkO ==3 || checkX == 3) && size == 3)             break;
         else if ((checkO == warunek || checkX == warunek) && size > 3) break;
-                 
+        checkO = 0;
+        checkX = 0;
 
         sum = 0;
     }
@@ -203,6 +208,8 @@ bool winDiagonal(vInt plansza){
     else return false;
 }
 
+
+
 // funkcja sprawdza czy jest miejsce na planczy na znak
 // jesli nie ma miejsca zwraca true
 bool remis(vInt plansza){
@@ -214,12 +221,50 @@ bool remis(vInt plansza){
     else return false;
 }
 
-void gamePlay2Players(int n){
+vInt botPlayer(vInt plansza,int turn){
+    int x    = 0, 
+        y    = 0,
+        i    = 0,
+        size = plansza.size();
+    vInt temp;
+
+        do{
+            do
+            {
+                temp = plansza;
+                x = rand()%size;
+                y = rand()%size;
+            } while (!canIput(plansza,x,y));
+            i++;
+            temp[x][y] = turn+1;
+        } while(winDiagonal(temp) || winHorizontal(temp) || winVertical(temp) || remis(temp));
+/*     }else if( turn > size - 2 && size > 3){
+        do{
+            do
+            {
+                temp = plansza;
+                x = rand()%size;
+                y = rand()%size;
+            } while (!canIput(plansza,x,y));
+            i++;
+            temp[x][y] = turn+1;
+        } while(winDiagonal(temp) || winHorizontal(temp) || winVertical(temp) || remis(temp)); */
+
+    
+    plansza[x][y] = whoPlays(turn);
+    
+    return plansza;
+} 
+
+
+
+
+void gamePlay2Players(int n,bool przekatne){
     int turn = 0,
         x    = 0,
         y    = 0,
         znak = 0;
-    bool    winH,winV,rem;
+    bool    winH,winV,rem,winD;
     vInt plansza = createPlansza(n,n);
     //plansza = {{0,1,1},{0,1,1},{1,0,1}};
     
@@ -238,13 +283,58 @@ void gamePlay2Players(int n){
         winH = winHorizontal(plansza);
         winV = winHorizontal(plansza);
         rem = remis(plansza);
-    }while (!winDiagonal(plansza));
+        if(przekatne == true) winD = winDiagonal(plansza);
+        else winD = false;
+    }while ( !winD && !winH && !winV && !rem);
     //} while (!winH && !rem && !winV);
 
     displayPlansza(plansza);
     turn--;
 
-    if(remis(plansza) == true) cout << "remis\n";
-    else if (turn % 2 == 0) {cout << "wygrana x\n";}
-    else if (turn % 2 == 1) {cout << "wygrana o\n";}
+    if(remis(plansza) == true && !winD && !winH && !winV)  cout << "remis    \n";
+    else if (turn % 2 == 0)   {cout << "wygrana x\n";}
+    else if (turn % 2 == 1)   {cout << "wygrana o\n";}
+}
+
+void gamePlaySingle(int n,bool przekatne){
+    int turn = 0,
+        x    = 0,
+        y    = 0,
+        znak = 0;
+    bool    winH,winV,rem,winD;
+    vInt plansza = createPlansza(n,n);
+    //plansza = {{0,1,1},{0,1,1},{1,0,1}};
+    
+    do
+    {
+        displayPlansza(plansza);
+        if(turn%2==1){
+            do
+            {
+                znak = whoPlays(turn);
+                cin >> x >> y;
+            } while (!canIput(plansza,x,y));
+            plansza[x][y] = znak;
+        }else if(turn % 2 == 0){
+            plansza = botPlayer(plansza,turn);
+        }
+        turn++;
+        displayPlansza(plansza);
+        
+        cout << endl;
+        winH = winHorizontal(plansza);
+        winV = winHorizontal(plansza);
+        rem = remis(plansza);
+        if(przekatne == true) winD = winDiagonal(plansza);
+        else winD = false;
+
+    }while (!winDiagonal(plansza) && !winH && !winV && !rem);
+    //} while (!winH && !rem && !winV);
+
+    displayPlansza(plansza);
+    turn--;
+
+    if(remis(plansza) == true && !winD && !winH && !winV)  cout << "remis    \n";
+    else if (turn % 2 == 0)   {cout << "wygrana x\n";}
+    else if (turn % 2 == 1)   {cout << "wygrana o\n";}
 }

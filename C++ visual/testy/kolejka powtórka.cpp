@@ -23,8 +23,8 @@ void display(kolejka *pierwszyElement){
         cout << "|" << pierwszyElement->id << "|" << pierwszyElement->name << "|" << pierwszyElement->subname << "|" << endl;
         pierwszyElement = pierwszyElement->nastepny;
     }
-    
 }
+
 void saveFile(kolejka *pierwszyElement){
     fstream plik;
     plik.open("plik", ios::out);
@@ -53,7 +53,15 @@ void dodajElement(kolejka **pierwszyElement,kolejka **ostatniElement){
     } 
 }
 
-void usunElemnent(int idElementu,kolejka **pierwszyElement, kolejka **ostatniElement){
+void usunElement(kolejka **pierwszyElement){
+    kolejka *temp;
+    if(*pierwszyElement != NULL){
+        temp = *pierwszyElement;
+        *pierwszyElement = (*pierwszyElement)->nastepny;
+        delete temp;
+        rozmiar--;
+    }
+
     
 }
 
@@ -62,17 +70,35 @@ void menu(){
     int x = 0;
     if(pierwszy == NULL){
         cout << " _________________________ " << endl
-             << "|      PUSTA KOLEJKA      |" << endl
-             << "|_________________________|" << endl;
+             << "|      PUSTA KOLEJKA      |" << endl;
     }
     else
         display(pierwszy);
-    cout << pierwszy << endl;
-
-    dodajElement(&pierwszy,&ostatni);
+    cout << "|_________________________|" << endl
+         << "|      KOLEJKA MENU       |" << endl
+         << "|_________________________|" << endl
+         << "|  1.Dodaj element        |" << endl
+         << "|  2.Usun  element        |" << endl
+         << "|  3.Zapisz do pliku      |" << endl
+         << "|  4.Zamknij              |" << endl
+         << "|_________________________|" << endl;
     cin >> x;
-    if(x !=0)
-    menu();
+    
+    switch (x)
+    {
+    case 1:
+        dodajElement(&pierwszy,&ostatni);
+        menu();
+        break;
+    case 2:
+        usunElement(&pierwszy);
+        menu();
+    case 3:
+        saveFile(pierwszy);
+        menu();
+    default:
+        break;
+    }
     
 }
 

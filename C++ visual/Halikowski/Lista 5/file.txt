@@ -1,0 +1,8 @@
+Wieslaw  ,Bomba    ,PESEL,10001
+Maria    ,Kiepski  ,PESEL,10001
+Jan      ,Kowalski ,PESEL,10005
+Maria    ,Kowalski ,PESEL,10004
+Maria    ,Paleta   ,PESEL,10001
+Wieslaw  ,Paleta   ,PESEL,10000
+Wieslaw  ,Walaszek ,PESEL,10006
+Jan      ,Walaszek ,PESEL,10004

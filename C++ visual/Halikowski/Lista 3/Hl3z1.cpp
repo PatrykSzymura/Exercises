@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
-
+#include "randomStruct.h"
+#include <time.h>
 using namespace std;
 
 
@@ -21,10 +22,10 @@ void inicjalizacja(lista **poczatek){
 //dodanie elementu na stos
 void addElement(lista **previous){
     lista *temp = new lista;
-    temp -> imie     = "uno";
-    temp -> nazwisko = "dos";
-    temp -> pesel    = "3";
-    temp -> wiek     = 4;
+    temp -> imie     = randomName();
+    temp -> nazwisko = randomSubName();
+    temp -> pesel    = "PESEL";
+    temp -> wiek     = rand()%9;
     temp -> pop      = *previous;
     *previous = temp;
 
@@ -42,7 +43,8 @@ void printElement(lista *previous){
     int i = 0;
     if(previous !=NULL){
         while(previous != NULL){
-            cout << "|" << i << "|" << previous->imie << "|" << previous->nazwisko << "|" << previous->pesel << "|" << previous->wiek << "|" << previous->pop<< endl;
+            printf("|%3d",i);
+            cout << "|" << previous->imie << "|" << previous->nazwisko << "|" << previous->pesel << "|" << previous->wiek << "|" << previous->pop<< endl;
             previous = previous->pop;
             i++;
         }
@@ -111,6 +113,7 @@ void menu(){
 
 int main(int argc, char const *argv[])
 {
+    srand(time(NULL));
     inicjalizacja(&poczatek);
     menu();
 

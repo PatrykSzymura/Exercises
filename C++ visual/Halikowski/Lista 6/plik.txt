@@ -1,0 +1,10 @@
+
+30 bubble    0
+30 selection 0
+30 insertion 0
+30 merge     0
+30 counting  0
+30 heap 0
+30 bucket    0
+30 quick     0
+30000 bubble    20.883

@@ -3,6 +3,7 @@
 #include <time.h>
 #include <algorithm>
 #include <vector>
+#include "randomStruct.h"
 
 using namespace std;
 
@@ -33,11 +34,10 @@ void addElement(lista **nastepny,lista **pierwszy){
     lista *temp = new lista;
     string //name,
         nazwisko;
-    temp->imie     = "name";
-    cin >> nazwisko;
-    temp->nazwisko = nazwisko;
+    temp->imie     = randomName();
+    temp->nazwisko = randomSubName();
     temp->PESEL    = "PESEL";
-    temp->wiek     =  rand()%10+rozmiarKolejki;
+    temp->wiek     =  rand()%10;
     temp->nast     = NULL;
     if (*pierwszy == NULL){*pierwszy  = temp;}
     if (*nastepny == NULL){*nastepny  = temp;}
@@ -53,7 +53,8 @@ void printElement(lista *pierwszyEl){
     int i = 0;
     if(pierwszyEl !=NULL){
         while(pierwszyEl != NULL){
-            cout << "|" << i << "|" << pierwszyEl->imie << "|" << pierwszyEl->nazwisko << "|" << pierwszyEl->PESEL << "|" << pierwszyEl->wiek << "|" << endl;
+            printf("|%3d",i);
+            cout << "|" << pierwszyEl->imie << "|" << pierwszyEl->nazwisko << "|" << pierwszyEl->PESEL << "|" << pierwszyEl->wiek << "|" << endl;
             pierwszyEl = pierwszyEl->nast;
             i++;
         }
