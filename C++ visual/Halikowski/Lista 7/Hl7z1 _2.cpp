@@ -16,7 +16,6 @@ drzewo* NowyWezel(int value)
     wezel->Value = value;
     wezel->mniejsza = NULL;
     wezel->wieksza = NULL;
-    wezel->poprzedni = NULL;
 
     return wezel;
 }
@@ -32,12 +31,10 @@ drzewo *DodajWezel(drzewo* korzen, int value)
     if (value < korzen->Value)
     {
         korzen->mniejsza = DodajWezel(korzen->mniejsza, value);
-        korzen->mniejsza->poprzedni = korzen;
     }
     else if (value > korzen->Value)
     {
         korzen->wieksza = DodajWezel(korzen->wieksza, value);
-        korzen->wieksza->poprzedni = korzen;
     }
 
     return korzen;
