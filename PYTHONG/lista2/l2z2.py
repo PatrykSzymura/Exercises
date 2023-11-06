@@ -27,6 +27,8 @@ def main():
     miasta      = importFromFile("dane-miasta")
     panstwa     = importFromFile("dane-panstwa")
     ulice       = importFromFile("dane-ulice")
+    table = []
+    row   = []
 
     cho = int(input("Podaj Ilość danych do pliku: "))
     seed = []
@@ -34,8 +36,12 @@ def main():
     for i in range(cho):
         seed = createSeed(20)
         line = imiona[seed[0]] +";"+ nazwiska[seed[1]] +";"+ str(generuj_pesel()) +";"+ ulice[seed[2]] +";"+ str(random.randrange(50)) +";"+ miasta[seed[3]] +";"+ panstwa[seed[4]] +"\n"
+        row = [imiona[seed[0]], nazwiska[seed[1]], str(generuj_pesel()), ulice[seed[2]],str(random.randrange(50)),miasta[seed[3]], panstwa[seed[4]]]
+        table.append(row)
         saveToFile("wynikowe.csv",line)
 
-main()
+    
 
+main()
+#sprwadz wiek na podstawie 4 liczb peselu i spawdzenie płci
 

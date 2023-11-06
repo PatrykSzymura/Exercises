@@ -16,6 +16,15 @@ def findPos(value,list):
     ret = [value , pos]
     return ret
 
+def whichSort(cho,list = []):
+    
+    if cho == 1:
+        list.sort()
+    else:
+        list.sort()
+        list.reverse()
+    return list
+
 def main():
     a = []
     a = initiationArray()
@@ -35,6 +44,10 @@ def main():
 
     temp = findPos(int(input("Podaj szukaną wartość: ")),a)
     print("Szukana:    {} pozycja: {}".format(temp[0],temp[1]))
+
+    #dodaj posortowana dla wyboru
+    cho  = int(input("Jak ma być posortwana\n1.rosnąco\n2.malejąco\n"))
+    print("Lista posortowana:\n{}".format(whichSort(cho,a)))
 
 
 
