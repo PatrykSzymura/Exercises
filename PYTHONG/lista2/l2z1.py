@@ -1,5 +1,6 @@
 import random
-
+from modul1z1 import findPos
+from modul2z1 import whichSort
 def initiationArray(array = []):
     maxRange = 15
     for i in range(maxRange):
@@ -7,23 +8,8 @@ def initiationArray(array = []):
         array.append(x)
     return array
 
-def findPos(value,list):
-    pos = 0
-    if value in list:
-        pos = list.index(value)       
-    else:
-        pos = "Brak w zbiorze"
-    ret = [value , pos]
-    return ret
 
-def whichSort(cho,list = []):
-    
-    if cho == 1:
-        list.sort()
-    else:
-        list.sort()
-        list.reverse()
-    return list
+
 
 def main():
     a = []
