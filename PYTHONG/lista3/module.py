@@ -1,9 +1,23 @@
-def importFromFile(dir):
-    file = open(dir,"r", encoding="utf-8")
-    list = file.read().splitlines()
-    file.close()
-    return list
+from test import Board
 
-def menu():
-    print("#"*10)
+b = Board
+
+
+class Game:
+    def __init__(self) -> None:
+        pass
+
+    def menu():
+        print("="*50)
+        dist = "                    "
+        print(f"\n{dist}MONOPOLY{dist}\n")
+        print("="*50)
     
+    def game_start():
+        x = 0
+    def game_save():
+        pass
+    def game_end():
+        pass
+gra = Game
+gra.menu()   
