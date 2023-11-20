@@ -7,6 +7,7 @@ class Pole:
 
         self.id = id
         self.nazwa = nazwa
+        self.owner_id = -1
 
     def __str__(self):
         return " id = {} \n nazwa = {}".format(self.id,self.nazwa)
@@ -19,11 +20,14 @@ class PoleKupne(Pole):
         super().__init__(id, nazwa)
 
     def __str__(self):
-        return super().__str__()+"\n cena kupna = {}".format(self.cenaKupna)
+        return super().__str__()+"\n cena kupna = {}".format(self.cenaKupna)   
     
     def build_house(self):
-        self.houses += 1
-        print(f"Built a house on {self.nazwa}. Total houses: {self.houses}")
+        if(self.houses < 4):
+            self.houses += 1
+            print(f"Built a house on {self.nazwa}. Total houses: {self.houses}")
+        else:
+            print("You cannot build more houses. limit is 4 houses")
 
 class PoleKolej(PoleKupne):
 
@@ -103,14 +107,31 @@ class Board:
     def simplyfied(self):
         print("#"*50)
         for field in self.fields:
-            print(field.nazwa,end=" | ")
+            print(field.id,end=" | ")
+        print(" ")
+        for player in self.players:
+            print(f"{player} position:{self.fields[player.position]}")
+    
+    def buy_property(self,buyer):
+        tempfld = self.fields[buyer.position]
+        if self.owner_id == -1:
+            temp = Player(-1,"Bank",0)
+            
+            if isinstance(tempfld, PoleKupne):
+                buyer.transfer_money(temp,tempfld.cenaKupna)
+                tempfld.owner_id = buyer.id
+                del temp
+            else:
+                print("Cannot buy this field")
+        else:
+            print(f"This field belongs to {tempfld.owner_id}")
 
     def move_player(self, player_index):
         player = self.players[player_index]
         dice_result = player.roll_dice()
         player.position = (player.position + dice_result) % self.total_fields()
 
-        # Check if player passed the starting field
+        #sprawdzenie czy gracz przeszedł przez pole start
         if player.position < dice_result:
             start_field = [field for field in self.fields if isinstance(field, Start)][0]
             start_field.give_bonus(player)
@@ -168,9 +189,30 @@ class Game:
 
         print("\nMonopoly Game Ended!")
 
-# Example usage
-monopoly_game = Game(num_players=4)
-monopoly_game.play_game(num_turns=5)
+
+#monopoly_game = Game(num_players=4)
+#monopoly_game.play_game(num_turns=5)
+x = Board(4)
+for i in range(0,x.num_players*5):
+    x.simplyfied()
+    current_player = i%x.num_players
+    print("make decision:\n - move - move by amount rolled by dice \n - buy  - buy property \n - check - check account balance \n - build - build house \n - save - save game progress")
+
+    cho = str(input("").lower())
+
+    if   cho == "move":
+        x.move_player(current_player)
+    elif cho == "buy" :
+        x.buy_property(current_player)
+    elif cho == "check":
+        pass
+    elif cho == "build":
+        pass
+    elif cho == "save":
+        pass
+    else:
+        print("incorrect choice")
+
 
 
 
