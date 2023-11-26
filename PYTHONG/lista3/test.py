@@ -7,7 +7,6 @@ class Pole:
 
         self.id = id
         self.nazwa = nazwa
-        self.owner_id = -1
 
     def __str__(self):
         return " id = {} \n nazwa = {}".format(self.id,self.nazwa)
@@ -16,18 +15,24 @@ class PoleKupne(Pole):
 
     def __init__(self, id, nazwa,cenaKupna):
         self.cenaKupna = cenaKupna
-        self.houses = 0
+        self.owner_id = -1
+        self.houses = 1
+        self.mnoznik = 1
         super().__init__(id, nazwa)
 
     def __str__(self):
         return super().__str__()+"\n cena kupna = {}".format(self.cenaKupna)   
     
     def build_house(self):
-        if(self.houses < 4):
+        if(self.houses < 5):
             self.houses += 1
-            print(f"Built a house on {self.nazwa}. Total houses: {self.houses}")
+            print(f"Built a house on {self.nazwa}. Total houses: {self.houses-1}")
         else:
             print("You cannot build more houses. limit is 4 houses")
+    
+    def ustalOplate(self):
+        return self.cenaKupna * self.mnoznik  * self.houses
+    
 
 class PoleKolej(PoleKupne):
 
@@ -38,8 +43,6 @@ class PoleKolej(PoleKupne):
     def __str__(self):
         return super().__str__()+"\n oplata za postoj = {}".format(str(self.ustalOplate()))
     
-    def ustalOplate(self):
-        return self.cenaKupna * self.mnoznik * (2 ** self.houses)
 
 class Start(Pole):
     def __init__(self, id, nazwa, bonus_money = 200):
@@ -48,6 +51,21 @@ class Start(Pole):
 
     def give_bonus(self, player):
         player.receive_money(self.bonus_money)
+
+class Tax(Pole):
+    def __init__(self, id, nazwa):
+        super().__init__(id, nazwa)
+
+    def tax_player(self,temp_player,value_to_tax):
+        npt = int(input("give value of your properties:"))
+        if npt == value_to_tax:
+            value_to_tax = int(value_to_tax/100)
+            temp_player.receive_money(-value_to_tax)
+        else :
+            print("Incorrect amount !!!")
+            value_to_tax = int(value_to_tax/100)
+            temp_player.receive_money(-value_to_tax)
+
 
 class Player():
     def __init__(self, id, name,money = 100,position = 0):
@@ -92,6 +110,13 @@ class Board:
 
         return board_fields
 
+    def count_value_properties(self,owner_id):
+        value = 0
+        for i in self.fields:
+            if self.fields[i].owner_id == owner_id:
+                value += self.fields[i].ustalOplate()
+        return value
+
     def display_board(self):
         for field in self.fields:
             print("#"*50)
@@ -114,17 +139,18 @@ class Board:
     
     def buy_property(self,buyer):
         tempfld = self.fields[buyer.position]
-        if self.owner_id == -1:
-            temp = Player(-1,"Bank",0)
+        if buyer.id == -1:
+
             
             if isinstance(tempfld, PoleKupne):
-                buyer.transfer_money(temp,tempfld.cenaKupna)
+                buyer.recive_money(-tempfld.cenaKupna)
                 tempfld.owner_id = buyer.id
                 del temp
             else:
                 print("Cannot buy this field")
         else:
             print(f"This field belongs to {tempfld.owner_id}")
+            #dodanie zapytania do wlasciciela czy chce sprzedac pole
 
     def move_player(self, player_index):
         player = self.players[player_index]
@@ -135,6 +161,9 @@ class Board:
         if player.position < dice_result:
             start_field = [field for field in self.fields if isinstance(field, Start)][0]
             start_field.give_bonus(player)
+        
+        if self.fields[player.position].owner_id != -1:
+            self.players[current_player].transfer_money(self.fields[player.position].owner_id,self.fields[player.position].ustalOplate())
 
 class Game:
     def __init__(self, num_players=4):
@@ -148,16 +177,16 @@ class Game:
         current_player = self.board.players[self.current_player_index]
         print(f"\n{current_player}'s turn (Position: {current_player.position}):")
         
-        # Roll the dice and move the player
+        
         dice_result = current_player.roll_dice()
         print(f"{current_player} rolled a {dice_result}")
         self.board.move_player(self.current_player_index)
 
-        # Display the updated board and players
+        
         self.board.display_board()
         self.board.display_players()
 
-        # Ask the player about actions to perform
+        
         action = input("Choose an action (buy/build/move): ").lower()
         
         if action == "buy":
@@ -165,19 +194,19 @@ class Game:
         elif action == "build":
             self.build_house(current_player)
         elif action == "move":
-            pass  # Player already moved, nothing to do
+            pass  
         else:
             print("Invalid action. Please choose buy, build, or move.")
 
-        # Increment the player index for the next turn
+        
         self.current_player_index = (self.current_player_index + 1) % len(self.board.players)
 
     def buy_pole(self, player):
-        # Implement logic for buying a pole (PoleKupne) here
+        
         pass
 
     def build_house(self, player):
-        # Implement logic for building a house on a PoleKupne here
+        
         pass
 
     def play_game(self, num_turns=10):
@@ -189,9 +218,20 @@ class Game:
 
         print("\nMonopoly Game Ended!")
 
+    def save_game_state(self):
+        filename = input("Enter the filename to save the game state: ")
+        with open(filename, 'wb') as file:
+            pickle.dump(self, file)
+        print(f"Game state saved as {filename}")
 
-#monopoly_game = Game(num_players=4)
-#monopoly_game.play_game(num_turns=5)
+   
+    def load_game_state(cls, filename):
+        with open(filename, 'rb') as file:
+            loaded_game = pickle.load(file)
+        print(f"Game state loaded from {filename}")
+        return loaded_game
+
+
 x = Board(4)
 for i in range(0,x.num_players*5):
     x.simplyfied()
@@ -203,13 +243,16 @@ for i in range(0,x.num_players*5):
     if   cho == "move":
         x.move_player(current_player)
     elif cho == "buy" :
-        x.buy_property(current_player)
+        x.buy_property(x.players[current_player])
     elif cho == "check":
-        pass
+        balance = x.players[current_player].money
+        print(f"Account balance :{balance}")
     elif cho == "build":
         pass
     elif cho == "save":
         pass
+    elif cho == "value":
+        print(x.count_value_properties(current_player))
     else:
         print("incorrect choice")
 
