@@ -15,31 +15,33 @@ class Field:
     def standOn(self):
         pass
 
+    def build_House(self):
+        return [False,"You Cannot Build Houses There"]
+
 class Start(Field) :    
-    def __init__(self, id,name = "Start",buyable = False):
+    def __init__(self, id = 0,name = "Start",buyable = False):
         self.buyable = buyable
         self.name = name
         super().__init__(id,name)
     
-    def standOn(self,player):
+    def standOn(self,player,board = []):
         player.receive_Money(300)
 
 class Tax(Start) :
-    def __init__(self, id,name = "Tax",buyable = False):
+    def __init__(self, id = 0,name = "Tax",buyable = False):
         self.name = name
         self.buyable = buyable
         super().__init__(id,name)
     
-    def standOn(self,player):
-        tax_value = int(player.check_Value_Of_Properties() / 100)
-        #print (tax_value)
+    def standOn(self,player,board):
+        tax_value = int(player.check_Value_Of_Properties(board) / 100)
         player.receive_Money(-tax_value)
 
 class Rails(Field) :
-    def __init__(self, id, name , buyable = True):
+    def __init__(self, id = 1, name  = "Rails", buyable = True):
         self.owner = -1
         self.multiplier = 1
-        self.price = 100
+        self.price = id * 100
         self.buyable = buyable
         super().__init__(id, name)
     
@@ -51,48 +53,44 @@ class Rails(Field) :
     
     def calculate_Buy_Price(self):
         return self.calculate_fee() * 10
-    
-
 
     def __str__(self):
         if self.owner == -1:
             return super().__str__()+f" | Fee: {self.calculate_fee()}"
         else:
-            return super().__str__()+f" | Fee: {self.calculate_fee()} | Owner: {self.owner}"
+            return super().__str__()+f" | Houses: {self.multiplier-1} | Fee: {self.calculate_fee()} | Owner: {self.owner}"
     
-    def standOn(self,player):
-        pass
+    def standOn(self,player,board):
+        if self.owner != -1:
+            player.receive_Money(-self.calculate_fee())
 
 class City(Rails) :
 
-    def __init__(self, id, name,buyable = True):
-        self.number_of_houses = 1
+    def __init__(self, id = 1, name = "City",buyable = True):
         self.buyable = buyable
         super().__init__(id, name)
 
-    def calculate_fee(self):
-        return super().calculate_fee()*self.number_of_houses
+
     def __str__(self):
         return super().__str__() 
-
-    def standOn(self,player):
-        pass 
+    
+    def standOn(self, player, board):
+        return super().standOn(player, board)
 
 class Player() :
-    def __init__(self,id,name,base_money_value = 1000):
+    def __init__(self,id = 0,name = "Example",base_money_value = 1000):
         self.id = id
         self.name = name
         self.money = base_money_value
-        self.is_active = True
-        self.list_Of_Properties = []
+        self.is_active = self.still_In_Game()
         self.position = 0
 
     def __str__(self):
         return f"{self.id} {self.name}"
     
-    def show_Player_Card(self):
+    def show_Player_Card(self,board):
         print("="*50)
-        print(f" Id: {self.id} \n Name: {self.name} \n Money: {self.money}$ \n Value of Properties: {self.check_Value_Of_Properties()}")
+        print(f" Id: {self.id} \n Name: {self.name} \n Money: {self.money}$ \n Value of Properties: {self.check_Value_Of_Properties(board)}$")
         print(F" Current position : {self.position}")
         print("="*50)
 
@@ -103,23 +101,16 @@ class Player() :
         return f"Account Balance of '{self.name}' : {self.money}$"
 
     def receive_Money(self, amount):
-        self.money += amount
-        
+        self.money += amount     
     
-    def buy_Field(self, property, list_Of_players ):
-        #property = Rails(10,"temp")
-        print(property.buyable)
-        print(property)
-        if property.buyable:
-            print("po if 1")
+    def buy_Property(self, property, list_Of_players ):
+        if property.buyable: 
             buyPrice = property.calculate_Buy_Price()
             if property.owner == -1:
                 if self.money >= buyPrice:
-                    self.list_Of_Properties.append(property)
                     self.receive_Money(-buyPrice)
                     property.owner = self.id
                     return [True,"Buying Field Succeded"]
-            
                 else:
                     return [False,"Lack of Funds"]
             else:
@@ -129,31 +120,49 @@ class Player() :
                     if self.money >= buyPrice:
                         self.receive_Money(-buyPrice)
                         owner.receive_Money(buyPrice)
-                        self.list_Of_Properties.append(property)
                         property.owner = self.id
                         return [True,f"Buying Field From {owner.name} Succeded"]
                 else:
                     return [False,f"{owner.name} Don't Want Sell {property.name} to {self.name}"]
-
         else:
-            return [False,"Not buyable or Field is owned"]
+            return [False,f"You cannot buy {property.name}"]
 
-    def check_Value_Of_Properties(self) :
+    def check_Value_Of_Properties(self,board) :
         tmp = 0
-        for field in range(len(self.list_Of_Properties)):
-            tmp += self.list_Of_Properties[field].calculate_Buy_Price()
+        for field in board:
+            if field.buyable == True and field.owner == self.id:
+                tmp += field.calculate_Buy_Price()
         return tmp
     
+    def build_House(self,property_To_Build_On):
+        if property_To_Build_On.id == self.id:
+            if property_To_Build_On.multiplier < 6:
+                money_To_Pay = property_To_Build_On.calculate_Buy_Price() / 5
+                if self.money >= money_To_Pay:
+                    property_To_Build_On.multiplier += 1
+                    print(property_To_Build_On.calculate_fee())
+                    self.receive_Money(-money_To_Pay)
+                    return [True,f"{property_To_Build_On.name} Belongs To {self.name} And Has {property_To_Build_On.multiplier-1}/4 Houses"]
+            return [True,f"{property_To_Build_On.name} Belongs To {self.name}"]
+        else:
+            return [False,f"{property_To_Build_On.name} Not Belongs To {self.name} And Has {property_To_Build_On.multiplier-1} Houses"]
+            
     def still_In_Game(self) :
-        if self.money <= 0 :
+        if self.money < 0 :
             return False
         else: 
             return True
         
 class Game():
-    def __init__(self,number_Of_Players,size_Of_Board):
+    
+    #=====================================================================#
+    #                         Default Settings                            #
+    #=====================================================================#
+    
+    def __init__(self,number_Of_Players = 2,size_Of_Board = 10, starter_Money = 1000):
         self.size_of_Board     = size_Of_Board
         self.number_Of_Players = number_Of_Players
+        self.starter_Money     = starter_Money
         self.list_of_Players   = self.asign_Players()
         self.board             = self.create_Board(size_Of_Board)
 
@@ -191,7 +200,7 @@ class Game():
     def asign_Players(self):
         list_of_players = []
         for player_id in range(0,self.number_Of_Players):
-            list_of_players.append(Player(player_id,f"Player {player_id + 1}"))
+            list_of_players.append(Player(player_id,f"Player {player_id + 1}",self.starter_Money))
         return list_of_players
 
     def show_Players(self):
@@ -207,30 +216,58 @@ class Game():
         if player.position < dice_Result and player.position != 0 :
             self.board[0].standOn(player)
 
-        self.board[player.position].standOn(player)
+        self.board[player.position].standOn(player,self.board) 
 
-    def player_Buy_Field(self,player_Id = 0):
-        player = self.list_of_Players[player_Id]
-        property = self.board[player.position]
-
-        operation_Result = player.buy_Field(property)
-
-        if  operation_Result[0] == True:
-            print(operation_Result[1])
+    #=====================================================================#
+    #                          Game Engine                                #
+    #=====================================================================#
+    
+    def check_Players_Status(self):
+        actives = 0
+        for player in self.list_of_Players:
+            if player.is_active :
+                actives += 1
+        if actives > 1:
+            return [True,f"There Is {actives} Of {self.number_Of_Players} Active Players"]
         else:
-            print(f"You cannot buy this Field !!!\nReason: {operation_Result[1]}")
-
-
+            return [False,f"There Is Winner"]
     
-    
+    def ask_Player(self,current_Player_Id):
+        current_Player = self.list_of_Players[current_Player_Id]
+        current_Location = self.board[current_Player.position]
+
+        options = "make decision:\n - move - Move By Amount Rolled By Dice \n - buy  - Buy Property \n - check - Check Player Info \n - build - Build House \n - full - Display Full Board\n"
+
+        cho = str(input(f"{options}").lower())
+
+        if   cho == "move":
+            self.move_Player_Position(current_Player_Id)
+        elif cho == "buy" :
+            current_Player.buy_Property(current_Location,self.list_of_Players)
+        elif cho == "check":
+            current_Player.show_Player_Card(self.board)
+        elif cho == "build":
+            current_Player.build_House(current_Location)
+        elif cho == "full":
+            self.display_Full_Board()
+        else:
+            print("incorrect choice")
+        
+
+    def start(self):
+        i = 0
+        while self.check_Players_Status()[0] :
+            current_Player_Id = i % self.number_Of_Players
+            current_Player = self.list_of_Players[current_Player_Id]
+            self.display_Simplified_Board()
+            print(f"Current Player : {self.list_of_Players[current_Player_Id].name}")
+            self.ask_Player(current_Player_Id)
+            
+            current_Player.is_active = current_Player.still_In_Game()
+
+            i += 1
+            print(i)
+            
+monopoly = Game().start()
 
 
-
-
-
-monopoly = Game(2,12)
-monopoly.board[1].owner = 1
-monopoly.board[2].owner = 1
-monopoly.board[3].owner = 1
-monopoly.board[4].owner = 1
-monopoly.display_Full_Board()
