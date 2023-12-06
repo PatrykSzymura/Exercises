@@ -7,7 +7,6 @@ class Field:
     def __init__(self,id,name):
         self.id = id
         self.name = name
-        
     
     def __str__(self):
         return f"id: {self.id} | Name: {self.name}"
@@ -58,7 +57,7 @@ class Rails(Field) :
         if self.owner == -1:
             return super().__str__()+f" | Fee: {self.calculate_fee()}"
         else:
-            return super().__str__()+f" | Houses: {self.multiplier-1} | Fee: {self.calculate_fee()} | Owner: {self.owner}"
+            return super().__str__()+f" | Houses: {self.multiplier-1} | Fee: {self.calculate_fee()} | Owner id: {self.owner}"
     
     def standOn(self,player,board):
         if self.owner != -1:
@@ -78,7 +77,7 @@ class City(Rails) :
         return super().standOn(player, board)
 
 class Player() :
-    def __init__(self,id = 0,name = "Example",base_money_value = 1000):
+    def __init__(self,id = 0,name = "Example",base_money_value = 10000):
         self.id = id
         self.name = name
         self.money = base_money_value
@@ -92,6 +91,8 @@ class Player() :
         print("="*50)
         print(f" Id: {self.id} \n Name: {self.name} \n Money: {self.money}$ \n Value of Properties: {self.check_Value_Of_Properties(board)}$")
         print(F" Current position : {self.position}")
+        print(" Properties: ")
+        self.show_Player_Properties(board)
         print("="*50)
 
     def roll_Dice(self) :
@@ -146,7 +147,12 @@ class Player() :
             return [True,f"{property_To_Build_On.name} Belongs To {self.name}"]
         else:
             return [False,f"{property_To_Build_On.name} Not Belongs To {self.name} And Has {property_To_Build_On.multiplier-1} Houses"]
-            
+
+    def show_Player_Properties(self,board):
+        for field in board:
+            if field.buyable == True and field.owner == self.id:
+                print(f"  {field.name} localization: {field.id} houses: {field.multiplier}")
+
     def still_In_Game(self) :
         if self.money < 0 :
             return False
@@ -159,7 +165,7 @@ class Game():
     #                         Default Settings                            #
     #=====================================================================#
     
-    def __init__(self,number_Of_Players = 2,size_Of_Board = 10, starter_Money = 1000):
+    def __init__(self,number_Of_Players = 2,size_Of_Board = 10, starter_Money = 10000):
         self.size_of_Board     = size_Of_Board
         self.number_Of_Players = number_Of_Players
         self.starter_Money     = starter_Money
@@ -203,9 +209,11 @@ class Game():
             list_of_players.append(Player(player_id,f"Player {player_id + 1}",self.starter_Money))
         return list_of_players
 
-    def show_Players(self):
+    def show_Players(self,board):
         for player in self.list_of_Players:
-            print(player)
+            print(f"id:{player.id} name: {player.name} position id: {player.position} position name: {board[player.position].name}")
+    
+        
     
     def move_Player_Position(self,id_Of_Player):
         player = self.list_of_Players[id_Of_Player]
@@ -242,32 +250,43 @@ class Game():
 
         if   cho == "move":
             self.move_Player_Position(current_Player_Id)
-        elif cho == "buy" :
-            current_Player.buy_Property(current_Location,self.list_of_Players)
+        elif cho == "buy":
+            if current_Location.buyable:
+                print(f"Account balance: {current_Player.money}")
+                cho2 = input(f"Do you want buy {current_Location.name} for {current_Location.calculate_Buy_Price()}$? (Y/N)").lower()
+                if cho2 == "y":
+                    res = current_Player.buy_Property(current_Location,self.list_of_Players)
+                    print(res[1])
+            else:
+                print("You cannot buy This field")
+                self.ask_Player(current_Player_Id)
         elif cho == "check":
             current_Player.show_Player_Card(self.board)
+            self.ask_Player(current_Player)
         elif cho == "build":
             current_Player.build_House(current_Location)
         elif cho == "full":
             self.display_Full_Board()
+            self.ask_Player(current_Player)
         else:
-            print("incorrect choice")
+            self.ask_Player(current_Player)
         
-
     def start(self):
         i = 0
         while self.check_Players_Status()[0] :
             current_Player_Id = i % self.number_Of_Players
             current_Player = self.list_of_Players[current_Player_Id]
-            self.display_Simplified_Board()
-            print(f"Current Player : {self.list_of_Players[current_Player_Id].name}")
-            self.ask_Player(current_Player_Id)
-            
-            current_Player.is_active = current_Player.still_In_Game()
 
-            i += 1
-            print(i)
+            self.show_Players(self.board)
+
+            if current_Player.is_active:
+                self.display_Simplified_Board()
+                print(f"Current Player : {self.list_of_Players[current_Player_Id].name}")
+                self.ask_Player(current_Player_Id)
             
+                current_Player.is_active = current_Player.still_In_Game()
+        
+                i += 1
+                print(i)
+         
 monopoly = Game().start()
-
-

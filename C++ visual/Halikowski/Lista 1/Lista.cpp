@@ -1,7 +1,8 @@
 #include <iostream>
 #include <time.h>
+#include <iostream>
+#include <string>
 using namespace std;
-
 void line(int loop,string mark){
     if (loop >= 0){
         cout << mark;
