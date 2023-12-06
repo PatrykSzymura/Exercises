@@ -1,3 +1,4 @@
+
 import requests
 #program zapamiętuje ustawienie miasta aktualna czy na jutro czy takie samo zapytanie
 API_key = "6e9f9d3c237d63c3352458cf75b21a82"
@@ -82,3 +83,6 @@ else:
     when = Get_Previus_Query()[1]
     print(when)
     print(f" City: {city_name} \n Weather: {Get_Weather(when.lower(),city_name,API_key)[0]} \n Temparature: {Get_Weather(when.lower(),city_name,API_key)[1]}C")
+
+
+
