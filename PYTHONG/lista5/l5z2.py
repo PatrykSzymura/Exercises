@@ -1,4 +1,5 @@
 import tkinter as tk
+from tkinter import messagebox
 
 class Game:
     def __init__(self, root,board_Size):
@@ -31,10 +32,28 @@ class Game:
             self.board[row][col] = 1
         
     def check_Fields(self):
-        #print(self.check_Row())
-        #print(self.check_Col())
-        print(self.check_Diag())
+        #print(f"row  {self.check_Row()}")
+        #print(f"col  {self.check_Col()}")
+        #print(f"diag {self.check_Diag()}")
+        who_Won = "tekst"
+        check1 = self.check_Row()
+        check2 = self.check_Col()
+        check3 = self.check_Diag()
+
+        if check1[0]:
+            who_Won = check1[1]
+        elif check2[0]:
+            who_Won = check2[1]
+        elif check3[0]:
+            who_Won = check3[1]
+
+        if check1[0] or check2[0] or check3[0]:
+            for row in range(self.board_Size):
+                for col in range(self.board_Size):
+                    self.grid[row][col].config(state=tk.DISABLED)
+            messagebox.showinfo("Game Ended",f" {who_Won} WON")
         
+    
 
     def check_Row(self):
         for row in self.board:

@@ -24,7 +24,7 @@ def get_Web(url, tag):
 
 if __name__ == "__main__":
     #url = input("Podaj adres strony internetowej: ")
-    url = "https://pans.nysa.pl/"
+    url = "https://arc.pans.nysa.pl/~adam.dudek/python/"
     tag = input("Choose tag: <h1>,<h2>,<p>,<ol> :").lower()
     
     result = get_Web(url, tag)
