@@ -32,9 +32,9 @@ class Game:
             self.board[row][col] = 1
         
     def check_Fields(self):
-        #print(f"row  {self.check_Row()}")
-        #print(f"col  {self.check_Col()}")
-        #print(f"diag {self.check_Diag()}")
+        print(f"row  {self.check_Row()}")
+        print(f"col  {self.check_Col()}")
+        print(f"diag {self.check_Diag()}")
         who_Won = "tekst"
         check1 = self.check_Row()
         check2 = self.check_Col()
@@ -95,19 +95,26 @@ class Game:
         return [False,None]
                 
     def check_Diag(self):
-        field = grid.board
+        tablica = grid.board
         tmp = 0
         
-        for i in range(1,grid.board_Size-1):
-            for j in range(1,grid.board_Size-1):
-                if field[i][j] == field[i-1][j-1] and field[i][j] == field[i+1][j+1]:
-                    tmp = field[i][j]
-                    break
-                elif field[i-1][j+1] == field[i][j] and field[i][j] == field[i+1][j-1]:
-                    tmp = field[i][j]
-                    break
-                else:
-                    continue
+        for i in range(3):
+            skos = [tablica[i + j][j] for j in range(3)]
+            if all(x == 1 for x in skos):
+                return 1
+            elif all(x == -1 for x in skos):
+                return -1
+
+    # Sprawdź skosy od prawej do lewej
+        for i in range(3):
+            skos = [tablica[i + j][4 - j] for j in range(3)]
+            if all(x == 1 for x in skos):
+                return [True,"x"]
+            elif all(x == -1 for x in skos):
+                return [True,"o"]
+
+    # Jeśli żaden skos nie spełnia warunków, zwróć 0 lub inną wartość, aby oznaczyć brak wyniku.
+        return [False,None]
         if tmp == -1:
             return [True,"x"]
         elif tmp == 1:

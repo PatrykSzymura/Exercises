@@ -5,10 +5,16 @@ import requests
 class App:
     def __init__(self, root, url = ""):
         self.znacznik_var = tk.StringVar()
+        self.dictionary = {}
+        self.word_Len = 0
 
         # Dodaj pole tekstowe
         self.url_entry = tk.Entry(root,width=50)
         self.url_entry.pack()
+
+        self.slider = tk.Scale(root,from_=4,to=20,orient="horizontal" ,command = self.set_Word_Len)
+        self.slider.pack()
+
 
         # Dodaj przyciski radiowe
         self.h1_button = tk.Radiobutton(root, text="h1", variable=self.znacznik_var, value="h1")
@@ -20,14 +26,19 @@ class App:
         self.ol_button = tk.Radiobutton(root, text="ol", variable=self.znacznik_var, value="ol")
         self.ol_button.pack()
 
+
         # Dodaj przycisk do uruchomienia funkcji count_Words
-        self.count_button = tk.Button(root, text="Policz słowa", command=self.count_Words)
+        self.count_button = tk.Button(root, text="Count Words", command=self.count_Words)
         self.count_button.pack()
+        self.ress = tk.Label(root,text='')
+        self.ress.pack()
 
         self.url = self.url_entry.get()
         self.root = root
-        self.dictionary = {}
         
+    def set_Word_Len(self,value):
+        self.word_Len = value
+        return value
 
     def get_Page_Content(self, url):
         response = requests.get(url)
@@ -36,6 +47,7 @@ class App:
         return BeautifulSoup(text, 'html.parser')
 
     def count_Words(self):
+        self.dictionary = {}
         url = self.url_entry.get()
         znacznik = self.znacznik_var.get()
         strona = self.get_Page_Content(url)
@@ -45,7 +57,7 @@ class App:
             slowa = el.text.split(" ")
             for slowo in slowa:
                 slowo = slowo.strip("#!?.,-=%1234567890()@$^&*[]{}+ «»")
-                if slowo == '' or len(slowo) < 4:
+                if slowo == '' or len(slowo) < int(self.word_Len):
                     continue
                 if slowo in self.dictionary:
                     self.dictionary[slowo] += 1
@@ -53,8 +65,21 @@ class App:
                     self.dictionary[slowo] = 1
         print("Słowa policzone!")
         print(self.dictionary)
+        x = self.ress
+        x.config(text=f"{self.min_Max()[0]}\n{self.min_Max()[1]}")
 
-url = "https://arc.pans.nysa.pl/~adam.dudek/python/"
+        
+
+    def min_Max(self):
+        sorted_Dictionary = sorted(self.dictionary.items(),key=lambda x:x[1])
+        if len(sorted_Dictionary) == 0:
+            return ["Brak elementu","Brak elementu"]
+        elif len(sorted_Dictionary) ==1:
+            return [f"Most Common {sorted_Dictionary[0][0]} : {sorted_Dictionary[0][1]}", f"Least common {sorted_Dictionary[0][0]} : {sorted_Dictionary[0][1]}"]
+        else:
+            return [f"Most Common {sorted_Dictionary[-1][0]} : {sorted_Dictionary[-1][1]}", f"Least common {sorted_Dictionary[1][0]} : {sorted_Dictionary[1][1]}"]
+
+#url = "https://arc.pans.nysa.pl/~adam.dudek/python/"
 root = tk.Tk()
-aplikacja = App(root, url)
+aplikacja = App(root)
 root.mainloop()

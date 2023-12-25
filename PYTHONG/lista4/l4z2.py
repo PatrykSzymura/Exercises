@@ -1,32 +1,59 @@
-import requests
+import tkinter as tk
 from bs4 import BeautifulSoup
+import requests
 
-def get_Web(url, tag):
-    try:
-        website = requests.get(url)
-        website.encoding ='utf-8'
-        parsed_Website = BeautifulSoup(website.text,'html.parser')
+class App:
+    def __init__(self, url = ""):
+        self.url  = url
+        self.marker = str(input("Choose h1 h2 p ol:"))
+        self.wordLimit = int(input("Min word len: "))
+        self.dictionary = {}
+
+        self.count_Words()
+        print(self.min_Max())
+
+        cho = input("Search for another element? y/n ").lower()
+        if cho =="y":
+            tmp = App(self.url) 
+            del tmp       
+
+    def get_Page_Content(self, url):
+        response = requests.get(url)
+        response.encoding = "utf-8"
+        text = response.text
+        return BeautifulSoup(text, 'html.parser')
+
+    def count_Words(self):
+        self.dictionary = {}
+        url = self.url
+        strona = self.get_Page_Content(url)
+        lista = strona.find_all(self.marker)
+        print(self.marker)
+
+        for el in lista:
+            slowa = el.text.split(" ")
+            for slowo in slowa:
+                slowo = slowo.strip("#!?.,-=%1234567890()@$^&*[]{}+ «»")
+                if slowo == '' or len(slowo) < self.wordLimit:
+                    continue
+                if slowo in self.dictionary:
+                    self.dictionary[slowo] += 1
+                else:
+                    self.dictionary[slowo] = 1
+        print("Words Counted")
+
+
         
-        if tag == "<h1>":
-            print(parsed_Website.h1)
-        elif tag == "<h2>":
-            print(parsed_Website.h2)
-        elif tag == "<p>":
-            print(parsed_Website.p)
-        elif tag == "ol":
-            print(parsed_Website.ol)
+
+    def min_Max(self):
+        sorted_Dictionary = sorted(self.dictionary.items(),key=lambda x:x[1])
+        if len(sorted_Dictionary) == 0:
+            return ["Brak elementu","Brak elementu"]
+        elif len(sorted_Dictionary) ==1:
+            return [f"Most Common {sorted_Dictionary[0][0]} : {sorted_Dictionary[0][1]}", f"Least common {sorted_Dictionary[0][0]} : {sorted_Dictionary[0][1]}"]
         else:
-            return None
+            return [f"Most Common {sorted_Dictionary[-1][0]} : {sorted_Dictionary[-1][1]}", f"Least common {sorted_Dictionary[1][0]} : {sorted_Dictionary[1][1]}"]
 
+#url = "https://arc.pans.nysa.pl/~adam.dudek/python/"
 
-    except requests.exceptions.RequestException as e:
-        return f"Błąd podczas pobierania strony: {str(e)}"
-
-if __name__ == "__main__":
-    #url = input("Podaj adres strony internetowej: ")
-    url = "https://arc.pans.nysa.pl/~adam.dudek/python/"
-    tag = input("Choose tag: <h1>,<h2>,<p>,<ol> :").lower()
-    
-    result = get_Web(url, tag)
-
-
+aplikacja = App(url=str(input("Input URL: ")))
