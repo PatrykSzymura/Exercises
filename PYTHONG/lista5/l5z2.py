@@ -12,7 +12,13 @@ class Game:
 
         for i in range(board_Size):
             for j in range(board_Size):
-                button = tk.Button(root, width=10, height=4, command=lambda row=i, col=j: self.button_click(row, col))
+                button = tk.Button(root, 
+                                   width = 10, 
+                                   height = 4, 
+                                   command = lambda 
+                                        row=i, 
+                                        col=j: 
+                                        self.button_click(row, col))
                 button.grid(row=i, column=j)
                 self.grid[i][j] = button
 
@@ -52,8 +58,6 @@ class Game:
                 for col in range(self.board_Size):
                     self.grid[row][col].config(state=tk.DISABLED)
             messagebox.showinfo("Game Ended",f" {who_Won} WON")
-        
-    
 
     def check_Row(self):
         for row in self.board:
@@ -121,13 +125,7 @@ class Game:
             return [True,"o"]
         else:
             return [False,None]
-
-                    
-
-                
-                 
-
-
+        
     def button_click(self, row, col):
         self.click_count += 1
 
