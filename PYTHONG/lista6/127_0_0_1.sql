@@ -20,8 +20,7 @@ SET time_zone = "+00:00";
 --
 -- Database: `students`
 --
-CREATE DATABASE IF NOT EXISTS `students` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE `students`;
+CREATE DATABASE IF NOT EXISTS `students` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci; USE `students`;
 
 -- --------------------------------------------------------
 
@@ -29,12 +28,7 @@ USE `students`;
 -- Table structure for table `album`
 --
 
-CREATE TABLE `album` (
-  `StudentAlbum` int(11) NOT NULL,
-  `Subject` int(11) NOT NULL,
-  `Grade` int(11) NOT NULL,
-  `Date` int(11) NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+CREATE TABLE `album` (`StudentAlbum` int(11) NOT NULL, `Subject` int(11) NOT NULL, `Grade` int(11) NOT NULL, `Date` int(11) NOT NULL DEFAULT current_timestamp()) 
 
 -- --------------------------------------------------------
 
@@ -42,14 +36,7 @@ CREATE TABLE `album` (
 -- Table structure for table `students_data`
 --
 
-CREATE TABLE `students_data` (
-  `ID` int(11) NOT NULL,
-  `Name` varchar(20) NOT NULL,
-  `Surname` varchar(20) NOT NULL,
-  `Adress` varchar(30) NOT NULL,
-  `PESEL` varchar(11) NOT NULL,
-  `Album` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+CREATE TABLE `students_data` ( `ID` int(11) NOT NULL, `Name` varchar(20) NOT NULL, `Surname` varchar(20) NOT NULL, `Adress` varchar(30) NOT NULL, `PESEL` varchar(11) NOT NULL, `Album` int(11) NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -57,11 +44,7 @@ CREATE TABLE `students_data` (
 -- Table structure for table `subjects`
 --
 
-CREATE TABLE `subjects` (
-  `Id` int(11) NOT NULL,
-  `Name` varchar(30) NOT NULL,
-  `TeacherId` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+CREATE TABLE `subjects` ( `Id` int(11) NOT NULL, `Name` varchar(30) NOT NULL, `TeacherId` int(11) NOT NULL)
 
 --
 -- Indexes for dumped tables
@@ -97,7 +80,7 @@ ALTER TABLE `subjects`
 -- AUTO_INCREMENT for table `students_data`
 --
 ALTER TABLE `students_data`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
 
 --
 -- AUTO_INCREMENT for table `subjects`
