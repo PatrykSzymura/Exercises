@@ -28,7 +28,7 @@ class db():
         database_Cursor = database_Connection.cursor()
 
         database_Cursor.execute(query)
-        database_Cursor.commit()
+        database_Connection.commit()
         database_Connection.close()
 
     def set_Database_Dictionary(self):
@@ -129,9 +129,7 @@ class App():
             query = f"INSERT INTO `students_data`(`Name`, `Surname`, `Adress`, `PESEL`, `Album`) VALUES ({values})"
             db(self.database_Name).edit(query)
         elif option == 'mod':
-            query = f"UPDATE `students_data` SET `Name`='{form['Imie'].get()}', `Surname`='{form['Nazwisko'].get()}', `Adress`='{form['Adress'].get()}', `PESEL`='{form['Pesel'].get()}', `Album`='{form['Album'].get()}')"
-            
-
+            query = f"UPDATE `students_data` SET `Name`='{form['Imie'].get()}', `Surname`='{form['Nazwisko'].get()}', `Adress`='{form['Adress'].get()}', `PESEL`='{form['Pesel'].get()}', `Album`='{form['Album'].get()}' WHERE `id` = {int(form['Id'].get())}"
     
     def table_Window(self):
         tableWindow = tk.Tk()
@@ -163,9 +161,6 @@ class App():
 
 
         tableWindow.mainloop()
-
-
-
 
     #<== Checker board For localization of columns and rows ==>
     def CheckerBoard(self,window,height = 1,width = 8):
