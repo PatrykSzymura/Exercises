@@ -84,13 +84,3 @@ def search_jump(lista, find_pesel):
         return index
     
     return -1
-
-# Test the search_jump function with a list of Osoba objects
-lista_osob = [Osoba() for _ in range(10)]
-random_pesel_to_find = lista_osob[random.randint(0, 9)].pesel
-result_index = search_jump(lista_osob, random_pesel_to_find)
-
-if result_index != -1:
-    print(f"Found at index {result_index}: {lista_osob[result_index].getDict()}")
-else:
-    print("Not found.")

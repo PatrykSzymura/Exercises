@@ -1,4 +1,6 @@
+from collections import defaultdict
 import random
+
 class Osoba(object):
 
     def __init__(self):
@@ -29,33 +31,19 @@ class Osoba(object):
     def random_pesel(self):
         pesel = ''.join(str(random.randint(0, 9)) for _ in range(11))
         return pesel
-    
- 
-lista_osob = []
- 
-lista_osob.append(Osoba('Adam',        'Kozlowski',    '92020110311') )
-lista_osob.append(Osoba('Bartosz',     'Romanowski',   '86031211345') )
-lista_osob.append(Osoba('Maksymilian', 'Roztocki',     '90051699089') )
-lista_osob.append(Osoba('Oskar',       'Nowak',        '94111489654') )
-lista_osob.append(Osoba('Adam',        'Nowak',        '67060991234') )
-lista_osob.append(Osoba('Maciej',      'Narzondek',    '97071996025') )
-lista_osob.append(Osoba('Maciej',      'Kozlowski',    '87091789761') )
-lista_osob.append(Osoba('Roman',       'Proton',       '89010323334') )
-lista_osob.append(Osoba('Olgiert',     'Romanowski',   '76070998001') )
-lista_osob.append(Osoba('Maciejka',    'Kozlowski',    '87091789761') )
- 
+
 class Search:
-    def __init__(self,data = []):
+    def __init__( self, data = [] ):
         self.data = data
         self.search = input("Czego potrzebujesz? ")
         self.arr = self.convert()
 
-    def convert(self):
+    def convert( self ):
         result = [int(self.data[_].getArr()[2]) for _ in range(len(self.data))]
         result.sort()
         return result
     
-    def line_Search(self, column = 0):
+    def line_Search( self, column = 0 ):
         index = []
         if len(self.data[0].getArr()) > column:
             for i in range(len(self.data)):
@@ -66,7 +54,7 @@ class Search:
             else: return index
         else: return index
 
-    def binary_Search (self):
+    def binary_Search( self ):
         target = int(self.search)
         left = 0 
         right = len(self.arr) 
@@ -83,4 +71,28 @@ class Search:
                     right = index 
                     
         return -1 
+
+    def generate_File( self ):
+        name_dict = defaultdict(list)
+        surname_dict = defaultdict(list)
+        pesel_dict = defaultdict(list)
+
+        for index, osoba in enumerate(lista_osob):
+            name_dict[osoba.imie].append(index)
+            surname_dict[osoba.nazwisko].append(index)
+            pesel_dict[osoba.pesel].append(index)
+
+        main_dict = {
+            'Name': name_dict,
+            'Surname': surname_dict,
+            'Pesel': pesel_dict,
+        }
+
+        self.file = main_dict
+
+    def display_File( self ):
+        for dictKey, dictVal in self.file.items():
+            print(f'{dictKey}')
+            for key , value in dictVal.items():
+                print(f'  {key} {value}')
 
