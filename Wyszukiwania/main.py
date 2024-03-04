@@ -6,7 +6,7 @@ class Osoba(object):
         self.nazwisko = self.random_subname()
         self.pesel = self.random_pesel()
 
-    def __str__(self):
+    def __str__(self): 
         return self.imie, self.nazwisko, self.pesel
     
     def getDict(self):
@@ -31,39 +31,20 @@ class Osoba(object):
         return pesel
     
  
-lista_osob = []
- 
-lista_osob.append(Osoba('Adam',        'Kozlowski',    '92020110311') )
-lista_osob.append(Osoba('Bartosz',     'Romanowski',   '86031211345') )
-lista_osob.append(Osoba('Maksymilian', 'Roztocki',     '90051699089') )
-lista_osob.append(Osoba('Oskar',       'Nowak',        '94111489654') )
-lista_osob.append(Osoba('Adam',        'Nowak',        '67060991234') )
-lista_osob.append(Osoba('Maciej',      'Narzondek',    '97071996025') )
-lista_osob.append(Osoba('Maciej',      'Kozlowski',    '87091789761') )
-lista_osob.append(Osoba('Roman',       'Proton',       '89010323334') )
-lista_osob.append(Osoba('Olgiert',     'Romanowski',   '76070998001') )
-lista_osob.append(Osoba('Maciejka',    'Kozlowski',    '87091789761') )
+lista_osob = [int(Osoba().random_pesel()) for _ in range(10)]
+lista_osob_Sorted = lista_osob.sort()
+
  
 class Search:
     def __init__(self,data = []):
         self.data = data
         self.search = input("Czego potrzebujesz? ")
-        self.arr = self.convert()
-
-    def convert(self):
-        result = [int(self.data[_].getArr()[2]) for _ in range(len(self.data))]
-        result.sort()
-        return result
     
     def line_Search(self, column = 0):
         index = []
-        if len(self.data[0].getArr()) > column:
-            for i in range(len(self.data)):
-                if self.data[i].getArr()[column].lower() == self.search.lower():
-                    index.append(i)
-            if len(index) == 0:
-                self.line_Search(column+1)
-            else: return index
+        for i in range(len(self.data)):
+            if self.data[i] == self.search:
+                index.append(i)
         else: return index
 
     def binary_Search (self):
@@ -83,4 +64,8 @@ class Search:
                     right = index 
                     
         return -1 
+
+print(f'Nie Posortowana: {lista_osob}')
+print(f'Posortowana:     {lista_osob_Sorted}')
+
 
