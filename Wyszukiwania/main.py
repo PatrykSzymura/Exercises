@@ -1,4 +1,6 @@
+from collections import defaultdict
 import random
+
 class Osoba(object):
 
     def __init__(self):
@@ -36,18 +38,18 @@ lista_osob_Sorted = lista_osob.sort()
 
  
 class Search:
-    def __init__(self,data = []):
+    def __init__( self, data = [] ):
         self.data = data
         self.search = input("Czego potrzebujesz? ")
     
-    def line_Search(self, column = 0):
+    def line_Search( self, column = 0 ):
         index = []
         for i in range(len(self.data)):
             if self.data[i] == self.search:
                 index.append(i)
         else: return index
 
-    def binary_Search (self):
+    def binary_Search( self ):
         target = int(self.search)
         left = 0 
         right = len(self.arr) 
