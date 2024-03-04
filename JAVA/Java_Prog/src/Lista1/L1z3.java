@@ -35,7 +35,7 @@ class UTWOR{
     }
 
     public void showAll(){
-        Outputs.ConsoleOut(STR."Title: \{Title} Author: \{Author} Duration (s): \{Duration}");
+        //Outputs.ConsoleOut("Title: \{Title} Author: \{Author} Duration (s): \{Duration}");
     }
 
 
