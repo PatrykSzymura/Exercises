@@ -2,16 +2,17 @@ package Lista2;
 
 class Field{
     private String Name, Desc;
+
     public Field(){}
+
     public void CreateField(String name, String desc){
        this.Name = name;
        this.Desc = desc;
     }
 
-    public void TakeAction() {
-
-    }
+    public void TakeAction() {}
 }
+
 class Buyable extends Field{
     private int Price;
     private int Owner_Id;
@@ -28,6 +29,7 @@ class Buyable extends Field{
            Owner_Id = new_owner_id;
            return true;
         }
+
         return false;
     }
     public boolean BuyField(int new_owner_id, boolean aproval){
@@ -35,15 +37,17 @@ class Buyable extends Field{
             Owner_Id = new_owner_id;
             return true;
         }
+
         return false;
     }
 }
 
 class Player{
     private boolean IsInGame;
-    private int Id;
-    private String Name;
+    private final int Id;
+    private final String Name;
     private int AccountBalance;
+
     public Player(int id, String name, int accountBalance){
         this.Id = id;
         this.Name = name;
@@ -70,9 +74,48 @@ class Player{
     public void PlayerLost() {
         IsInGame = false;
     }
-    public boolean makeTransaction(int moneyAmount){
-        if (this.AccountBalance <= moneyAmount) {return [false, ""];}
+
+    public Object makeTransaction(int moneyAmount){
+        Object[] result = new Object[2];
+
+        if (this.AccountBalance <= moneyAmount) {
+            this.AccountBalance += moneyAmount;
+            result[0] = false;
+            result[1] = "Lack of funds";
+        }
+
+        result[0] = true;
+        result[1] = "Operation Complete";
+
+        return result;
     }
 }
+
+class Board{
+    protected Board(int boardSize){
+
+    }
+}
+
+class MonopolyBuilder{
+    private int BoardSize       = 12;
+    private int NumberOfPlayers = 2 ;
+
+    MonopolyBuilder setBoardSize(int size){
+        this.BoardSize = size;
+        return this;
+    }
+
+    MonopolyBuilder setNumberOfPlayers(int number){
+        this.NumberOfPlayers = number;
+        return this;
+    }
+
+    Monopoly buildMonopoly(){
+        return new Monopoly( BoardSize, NumberOfPlayers );
+    }
+}
+
 public class Monopoly {
+    public Monopoly(int BoardSize, int NumOfPlayers){}
 }
