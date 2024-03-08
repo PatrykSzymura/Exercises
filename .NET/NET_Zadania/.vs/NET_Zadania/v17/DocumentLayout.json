@@ -1,0 +1,54 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\shared\\listy2\\.NET\\NET_Zadania\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{40287FDC-B700-41B2-8380-A8F2DC53FD13}|NET_Zadania\\NET_Zadania.csproj|c:\\shared\\listy2\\.net\\net_zadania\\net_zadania\\lista2\\l2z1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{40287FDC-B700-41B2-8380-A8F2DC53FD13}|NET_Zadania\\NET_Zadania.csproj|solutionrelative:net_zadania\\lista2\\l2z1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{40287FDC-B700-41B2-8380-A8F2DC53FD13}|NET_Zadania\\NET_Zadania.csproj|c:\\shared\\listy2\\.net\\net_zadania\\net_zadania\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{40287FDC-B700-41B2-8380-A8F2DC53FD13}|NET_Zadania\\NET_Zadania.csproj|solutionrelative:net_zadania\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\shared\\listy2\\.NET\\NET_Zadania\\NET_Zadania\\Program.cs",
+              "RelativeDocumentMoniker": "NET_Zadania\\Program.cs",
+              "ToolTip": "C:\\shared\\listy2\\.NET\\NET_Zadania\\NET_Zadania\\Program.cs",
+              "RelativeToolTip": "NET_Zadania\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAlAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-07T07:14:24.598Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "L2z1.cs",
+              "DocumentMoniker": "C:\\shared\\listy2\\.NET\\NET_Zadania\\NET_Zadania\\Lista2\\L2z1.cs",
+              "RelativeDocumentMoniker": "NET_Zadania\\Lista2\\L2z1.cs",
+              "ToolTip": "C:\\shared\\listy2\\.NET\\NET_Zadania\\NET_Zadania\\Lista2\\L2z1.cs",
+              "RelativeToolTip": "NET_Zadania\\Lista2\\L2z1.cs",
+              "ViewState": "AQIAAAUAAAAAAAAAAAAiwCMAAAAZAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-08T13:20:42.478Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
