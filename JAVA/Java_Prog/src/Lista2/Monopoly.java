@@ -1,7 +1,7 @@
 package Lista2;
 
-class Field{
-    private String Name, Desc;
+abstract class Field{
+    protected String Name, Desc;
 
     public Field(){}
 
@@ -11,27 +11,52 @@ class Field{
     }
 
     public void TakeAction() {}
+
+    public abstract void TakeAction(Player CurrentPlayerId);
 }
 
-class Buyable extends Field{
-    private int Price;
-    private int Owner_Id;
-
-    public void CreateField(String name, String desc, int price){
+class StartField extends Field{
+    @Override
+    public void CreateField(String name, String desc) {
         super.CreateField(name, desc);
-        Price = price;
-        Owner_Id = 0;
     }
 
-    public int CalculateSellPrice(){return Price;}
+    @Override
+    public void TakeAction(Player CurrentPlayerId) {
+        CurrentPlayerId.makeTransaction(1000);
+    }
+}
+
+class RailsField extends Field{
+    protected int Price;
+    protected int Owner_Id;
+    protected int PriceModifier = 1;
+
+
+    public void CreateField(String name, String desc, int BasePrice){
+        super.CreateField(name, desc);
+
+        this.Price = CalculatePrice(BasePrice);
+        this.Owner_Id = 0;
+    }
+
+    public int CalculateTax(){return this.Price/10;}
+
+    protected int CalculatePrice(int BasePrice){
+        return BasePrice * this.PriceModifier;
+    }
+
+    public int CalculateSellPrice(){ return Price * 2; }
+
     public boolean BuyField(int new_owner_id){
-        if (this.Owner_Id == 0){
-           Owner_Id = new_owner_id;
-           return true;
+        if (this.Owner_Id == 0) {
+            this.Owner_Id = new_owner_id;
+            return true;
         }
 
         return false;
     }
+
     public boolean BuyField(int new_owner_id, boolean aproval){
         if (aproval){
             Owner_Id = new_owner_id;
@@ -39,6 +64,30 @@ class Buyable extends Field{
         }
 
         return false;
+    }
+
+    @Override
+    public void TakeAction(Player CurrentPlayerId) {
+        CurrentPlayerId.makeTransaction(this.CalculateTax());
+    }
+}
+
+class HouseField extends RailsField{
+    @Override
+    public void CreateField(String name, String desc, int BasePrice) {
+        super.CreateField(name, desc, BasePrice);
+    }
+
+    public int getPriceModifier(){
+        return this.PriceModifier;
+    }
+
+    public void updatePriceModifier(){
+        this.PriceModifier += 1;
+    }
+
+    public int calculateBuildHousePrice(){
+        return this.PriceModifier * 100;
     }
 }
 
@@ -92,7 +141,16 @@ class Player{
 }
 
 class Board{
-    protected Board(int boardSize){
+    protected int BoardSize;
+    protected Object[][] BoardFinal;
+    protected Board(int boardsize){
+        this.BoardSize = boardsize;
+        this.BoardFinal = new Object[2][boardsize];
+
+        for (int i = 1; i < boardsize; i++) {
+            //replace later buyable for house field or rails field
+                BoardFinal[0][i] = new RailsField();
+        }
 
     }
 }
@@ -117,5 +175,7 @@ class MonopolyBuilder{
 }
 
 public class Monopoly {
-    public Monopoly(int BoardSize, int NumOfPlayers){}
+    public Monopoly(int BoardSize, int NumOfPlayers){
+
+    }
 }
