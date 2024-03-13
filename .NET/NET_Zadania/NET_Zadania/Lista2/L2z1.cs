@@ -12,8 +12,8 @@ namespace Lista2
         {
             var rand = new Random();
 
-            for (int i = 0; i < size; i++) { 
-                Kolekcja.Add(new Liczby(rand.Next(-100,100))); 
+            for (int i = 0; i < size*2; i++) { 
+                Console.WriteLine(Kolekcja.Add(new Liczby(rand.Next(-5,5)))); 
             }
 
             DisplaySet();
