@@ -8,17 +8,18 @@ namespace Lista2
     {
         HashSet<Liczby> Kolekcja = new HashSet<Liczby>();
 
-        public L2z1(int size)
+        public L2z1(int size, int min = -100, int max = 100)
         {
-            var rand = new Random();
+            var rnd = new Random();
+            var randomNumbers = Enumerable.Range(min, max).OrderBy(x => rnd.Next()).Take(size).ToList();
 
-            for (int i = 0; i < size*2; i++) { 
-                Console.WriteLine(Kolekcja.Add(new Liczby(rand.Next(-5,5)))); 
+            foreach (int i in randomNumbers)
+            {
+                this.Kolekcja.Add(new Liczby(i));
             }
 
             DisplaySet();
             
-            Console.WriteLine("Hell");
         }
 
         private void DisplaySet()

@@ -4,6 +4,6 @@ public class Programowanie_NET
 {
     public static void Main(string[] args)
     {
-        Lista2.L2z1 test = new L2z1(5);        
+        Lista2.L2z2 test = new L2z2();        
     }
-}
+}   
