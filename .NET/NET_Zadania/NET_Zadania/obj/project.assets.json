@@ -8,23 +8,23 @@
     "net8.0": []
   },
   "packageFolders": {
-    "C:\\Users\\Papryk\\.nuget\\packages\\": {},
+    "C:\\Users\\Admin\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "J:\\listy\\.NET\\NET_Zadania\\NET_Zadania\\NET_Zadania.csproj",
+      "projectUniqueName": "C:\\shared\\listy2\\.NET\\NET_Zadania\\NET_Zadania\\NET_Zadania.csproj",
       "projectName": "NET_Zadania",
-      "projectPath": "J:\\listy\\.NET\\NET_Zadania\\NET_Zadania\\NET_Zadania.csproj",
-      "packagesPath": "C:\\Users\\Papryk\\.nuget\\packages\\",
-      "outputPath": "J:\\listy\\.NET\\NET_Zadania\\NET_Zadania\\obj\\",
+      "projectPath": "C:\\shared\\listy2\\.NET\\NET_Zadania\\NET_Zadania\\NET_Zadania.csproj",
+      "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+      "outputPath": "C:\\shared\\listy2\\.NET\\NET_Zadania\\NET_Zadania\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Papryk\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -71,7 +71,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

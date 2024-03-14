@@ -24,10 +24,11 @@ namespace Lista2
 
         private void DisplaySet()
         {
+            Console.WriteLine(" Liczba | Wartosc_Bezwzgledna | Parzysta");
             foreach (Liczby i in  Kolekcja) 
             {
                 Object[] temp = i.GetValues();
-                Console.WriteLine(" {0} {1} {2}", temp[0], temp[1], temp[2]);
+                Console.WriteLine(" {0,6} | {1,19} | {2,8}", temp[0], temp[1], temp[2]);
             }
         }
     }
