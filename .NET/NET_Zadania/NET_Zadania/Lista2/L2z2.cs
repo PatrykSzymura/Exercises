@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Net.NetworkInformation;
 using System.Security;
 using System.Text;
@@ -12,7 +13,10 @@ namespace Lista2
     {
         public L2z2()
         {
-          ATM ing = new ATM();
+            HashSet<BankAccount> accounts = new HashSet<BankAccount>();
+            accounts.Add(new BankAccount("papa","1235"));
+            accounts.Add(new BankAccount());
+            ATM_Console_Interface ing = new ATM_Console_Interface(accounts);
         }
         
     }
@@ -58,6 +62,18 @@ namespace Lista2
             foreach (int banknote in banknotes.Keys)
             {
                 Console.WriteLine("| {0,-7} | {1,5} |", banknote, banknotes[banknote]);
+            }
+            Console.WriteLine("|_________|_______|");
+        }
+
+        public void DisplayBanknotes()
+        {
+            Console.WriteLine(" _________________");
+            Console.WriteLine("| Nominal | Ilosc |");
+            Console.WriteLine("|_________|_______|");
+            foreach (int banknote in this.Banknotes.Keys)
+            {
+                Console.WriteLine("| {0,-7} | {1,5} |", banknote, this.Banknotes[banknote]);
             }
             Console.WriteLine("|_________|_______|");
         }
@@ -128,6 +144,8 @@ namespace Lista2
             this.PIN = pin;
         }
 
+        public int CheckBalance() { return this.AccountBalance; }
+
         public bool CanWithdraw(int amount)
         {
             return (AccountBalance >= amount) ? true : false;
@@ -170,24 +188,76 @@ namespace Lista2
     {
         public ATM_Console_Interface(HashSet<BankAccount> bankAccounts) {
             ATM aTM = new ATM();
+            BankAccount CurrentBankAccount;
 
-            String login, pin;
+            aTM.DisplayBanknotes();
+
+            String login = "-", pin;
             do {
+                if(login != "-") { Console.WriteLine("Incorrect Pin or Login"); }
+
                 Console.WriteLine("Login: ");
                 login = Console.ReadLine();
                 Console.WriteLine("Pin: ");
                 pin = Console.ReadLine();
 
-            } while ();
-            
-            
-           
+            } while (HandleAccountsVerification(bankAccounts,login,pin));
+
+            BankAccount Current  = new BankAccount();
+
+            foreach (BankAccount bankAccount in bankAccounts)
+            {
+                if (bankAccount.CheckCredientials(login, pin))
+                {
+                    Current = bankAccount;
+                }
+            }
+
+            bool exit = true;
+            do {
+                Console.WriteLine("Choose Option:");
+                Console.WriteLine("1.Check Balance");
+                Console.WriteLine("2.Withdraw money");
+                Console.WriteLine("3.Deposit money");
+                int cho = int.Parse(Console.ReadLine());
+
+                int amount1 = 0;
+
+                switch (cho)
+                {
+                    case 1:
+                        Console.WriteLine("Current balance: {0}", Current.CheckBalance());
+                        break;
+                    case 2:
+                        Console.WriteLine("Specify amount of money to withdraw");
+                        amount1 = int.Parse(Console.ReadLine());
+                        Current.MakeTransaction(-amount1);
+                        aTM.DepositMoney(int.Parse(Console.ReadLine()));
+                        break;
+                    case 3:
+                        Console.WriteLine("Specify amount of money to deposit");
+                        amount1 = int.Parse(Console.ReadLine());
+                        Current.MakeTransaction(amount1);
+                        aTM.WithdrawMoney(amount1);
+                        break;
+                    case 4:
+                        exit = false;
+                        break;
+                }
+            } while (exit);
+            aTM.DisplayBanknotes();
         }
         private bool HandleAccountsVerification(HashSet<BankAccount> bankAccounts,String Login, String Pin)
         {
+            foreach (BankAccount bankAccount in bankAccounts)
+            {
+                if (bankAccount.CheckCredientials(Login, Pin)) 
+                { 
+                    return true; 
+                }
+            }
 
             return false;
         }
     }
 }
-

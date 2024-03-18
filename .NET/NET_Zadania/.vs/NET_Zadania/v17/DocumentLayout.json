@@ -1,13 +1,13 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\shared\\listy2\\.NET\\NET_Zadania\\",
+  "WorkspaceRootPath": "J:\\listy\\.NET\\NET_Zadania\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{40287FDC-B700-41B2-8380-A8F2DC53FD13}|NET_Zadania\\NET_Zadania.csproj|c:\\shared\\listy2\\.net\\net_zadania\\net_zadania\\lista2\\l2z2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{40287FDC-B700-41B2-8380-A8F2DC53FD13}|NET_Zadania\\NET_Zadania.csproj|j:\\listy\\.net\\net_zadania\\net_zadania\\lista2\\l2z2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{40287FDC-B700-41B2-8380-A8F2DC53FD13}|NET_Zadania\\NET_Zadania.csproj|solutionrelative:net_zadania\\lista2\\l2z2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{40287FDC-B700-41B2-8380-A8F2DC53FD13}|NET_Zadania\\NET_Zadania.csproj|c:\\shared\\listy2\\.net\\net_zadania\\net_zadania\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{40287FDC-B700-41B2-8380-A8F2DC53FD13}|NET_Zadania\\NET_Zadania.csproj|j:\\listy\\.net\\net_zadania\\net_zadania\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{40287FDC-B700-41B2-8380-A8F2DC53FD13}|NET_Zadania\\NET_Zadania.csproj|solutionrelative:net_zadania\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -24,9 +24,9 @@
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\shared\\listy2\\.NET\\NET_Zadania\\NET_Zadania\\Program.cs",
+              "DocumentMoniker": "J:\\listy\\.NET\\NET_Zadania\\NET_Zadania\\Program.cs",
               "RelativeDocumentMoniker": "NET_Zadania\\Program.cs",
-              "ToolTip": "C:\\shared\\listy2\\.NET\\NET_Zadania\\NET_Zadania\\Program.cs",
+              "ToolTip": "J:\\listy\\.NET\\NET_Zadania\\NET_Zadania\\Program.cs",
               "RelativeToolTip": "NET_Zadania\\Program.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAkAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -36,11 +36,11 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "L2z2.cs",
-              "DocumentMoniker": "C:\\shared\\listy2\\.NET\\NET_Zadania\\NET_Zadania\\Lista2\\L2z2.cs",
+              "DocumentMoniker": "J:\\listy\\.NET\\NET_Zadania\\NET_Zadania\\Lista2\\L2z2.cs",
               "RelativeDocumentMoniker": "NET_Zadania\\Lista2\\L2z2.cs",
-              "ToolTip": "C:\\shared\\listy2\\.NET\\NET_Zadania\\NET_Zadania\\Lista2\\L2z2.cs",
+              "ToolTip": "J:\\listy\\.NET\\NET_Zadania\\NET_Zadania\\Lista2\\L2z2.cs",
               "RelativeToolTip": "NET_Zadania\\Lista2\\L2z2.cs",
-              "ViewState": "AQIAAKoAAAAAAAAAAAAcwLkAAABpAAAA",
+              "ViewState": "AQIAAMIAAAAAAAAAAAAmwO0AAABNAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-13T14:17:20.764Z",
               "EditorCaption": ""
