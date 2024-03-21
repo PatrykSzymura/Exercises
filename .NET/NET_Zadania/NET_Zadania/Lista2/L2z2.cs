@@ -1,263 +1,53 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Net.NetworkInformation;
-using System.Security;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace Lista2
-{
-    public class L2z2
-    {
-        public L2z2()
-        {
-            HashSet<BankAccount> accounts = new HashSet<BankAccount>();
-            accounts.Add(new BankAccount("papa","1235"));
-            accounts.Add(new BankAccount());
-            ATM_Console_Interface ing = new ATM_Console_Interface(accounts);
-        }
-        
-    }
+{ 
 
-    class ATM
-    {
-        private Dictionary<int,int> Banknotes;
+	public class L2z2
+	{
+		public L2z2()
+		{
+            String bin = "010010";
 
-        public ATM()
-        {
-            var rnd = new Random();
-
-            this.Banknotes = new Dictionary<int,int>();
-            this.Banknotes.Add(500, rnd.Next(1, 10));
-            this.Banknotes.Add(200, rnd.Next(1, 10));
-            this.Banknotes.Add(100, rnd.Next(1, 10));
-            this.Banknotes.Add(50,  rnd.Next(1, 10));
-            this.Banknotes.Add(20,  rnd.Next(1, 10));
-            this.Banknotes.Add(10,  rnd.Next(1, 10));
-
+            Console.WriteLine(ConvertHex(bin));
+            Console.WriteLine(ConvertOct(bin));
+            Console.WriteLine(ConvertDec(bin));
+            Console.WriteLine(ConvertPen(bin));
         }
 
-        private int MaxPioniondze()
+        public static string ConvertHex(string strBinary)
         {
-            int sum = 0;
-            foreach (int denomination in this.Banknotes.Keys)
-            {
-                sum += (denomination * this.Banknotes[denomination]);
-            }
-            return sum;
+            string strHex = Convert.ToInt32(strBinary, 2).ToString("X");
+            return strHex;
         }
 
-        private bool CanWithdraw(int amount)
+        public static string ConvertOct(string strBinary)
         {
-            return (amount < MaxPioniondze()) ? true : false;
+            int convertnumber = Convert.ToInt32(strBinary, 2);
+            return Convert.ToString(convertnumber, 8);
         }
 
-        public void DisplayBanknotes(Dictionary<int,int> banknotes)
+        public static string ConvertDec(string strBinary)
         {
-            Console.WriteLine(" _________________");
-            Console.WriteLine("| Nominal | Ilosc |");
-            Console.WriteLine("|_________|_______|");
-            foreach (int banknote in banknotes.Keys)
-            {
-                Console.WriteLine("| {0,-7} | {1,5} |", banknote, banknotes[banknote]);
-            }
-            Console.WriteLine("|_________|_______|");
+            return Convert.ToInt32(strBinary, 2).ToString();
         }
 
-        public void DisplayBanknotes()
+        public static string ConvertPen(string value)
         {
-            Console.WriteLine(" _________________");
-            Console.WriteLine("| Nominal | Ilosc |");
-            Console.WriteLine("|_________|_______|");
-            foreach (int banknote in this.Banknotes.Keys)
+            int var = Convert.ToInt32(value,2);
+            string result = string.Empty;
+            char[] baseChars = {'0','1','2','3','4'};
+            int Base = Convert.ToInt32("101", 2);
+
+            do
             {
-                Console.WriteLine("| {0,-7} | {1,5} |", banknote, this.Banknotes[banknote]);
+                result = baseChars[var % Base] + result;
+                var = var / Base;
             }
-            Console.WriteLine("|_________|_______|");
-        }
+            while (var > 0);
 
-        private Dictionary<int, int> CalculateNotes(int amount, Dictionary<int, int> availableBanknotes)
-        {
-            int[] denominations = { 500, 200, 100, 50, 20, 10 };
-            Dictionary<int, int> withdrawal = new Dictionary<int, int>();
-
-            foreach (int denomination in denominations)
-            {
-                int count = Math.Min(amount / denomination, availableBanknotes[denomination]);
-                if (count > 0)
-                {
-                    withdrawal.Add(denomination, count);
-                    amount -= count * denomination;
-                }
-            }
-
-            return withdrawal;
-        }
-
-        public void WithdrawMoney(int amount)
-        {
-            if (CanWithdraw(amount))
-            {
-                Dictionary<int, int> WithdrawalMoney = CalculateNotes(amount, this.Banknotes);
-              
-                foreach(int denominations in WithdrawalMoney.Keys)
-                {
-                    this.Banknotes[denominations] -= WithdrawalMoney[denominations];
-                }
-            }
-            else
-            {
-                Console.WriteLine("ATM has insufficient amount of money");
-            }
-        }  
-        
-        public void DepositMoney(int amount)
-        {
-            if(amount == (amount / 10) * 10)
-            {
-                Dictionary<int, int> Deposit = CalculateNotes(amount, this.Banknotes);
-                
-                foreach(int denominations in Deposit.Keys)
-                {
-                    this.Banknotes[denominations] += Deposit[denominations];
-                }
-            }
-            else
-            {
-                Console.WriteLine("Cannot Insert Coins");
-            }
-        }
-    }
-    
-    class BankAccount
-    {
-        private String Login, 
-                       PIN;
-        private int AccountBalance;
-
-        public BankAccount(String login = "login", String pin = "2137", int AccountBalance = 1000)
-        {
-            this.AccountBalance = AccountBalance;
-            this.Login = login;
-            this.PIN = pin;
-        }
-
-        public int CheckBalance() { return this.AccountBalance; }
-
-        public bool CanWithdraw(int amount)
-        {
-            return (AccountBalance >= amount) ? true : false;
-        }
-
-        public bool CheckCredientials(String login, String pin)
-        {
-            Dictionary<String, bool> Verification = new Dictionary<string, bool>();
-            Verification.Add("pin",   false);
-            Verification.Add("login", false);
-
-            if (login == this.Login)
-            {
-                Verification["login"] = true;   
-            }
-
-            if (pin == this.PIN)
-            {
-                Verification["pin"] = true;
-            }
-            
-            foreach (bool ver in  Verification.Values) 
-            {
-                if (!ver) { return false; }
-            }
-
-            return true;
-        }
-
-        public void MakeTransaction(int amount)
-        {
-            if (CanWithdraw(amount)) 
-            {
-                this.AccountBalance += amount;
-            }
-        }
-    }
-
-    class ATM_Console_Interface
-    {
-        public ATM_Console_Interface(HashSet<BankAccount> bankAccounts) {
-            ATM aTM = new ATM();
-            BankAccount CurrentBankAccount;
-
-            aTM.DisplayBanknotes();
-
-            String login = "-", pin;
-            do {
-                if(login != "-") { Console.WriteLine("Incorrect Pin or Login"); }
-
-                Console.WriteLine("Login: ");
-                login = Console.ReadLine();
-                Console.WriteLine("Pin: ");
-                pin = Console.ReadLine();
-
-            } while (HandleAccountsVerification(bankAccounts,login,pin));
-
-            BankAccount Current  = new BankAccount();
-
-            foreach (BankAccount bankAccount in bankAccounts)
-            {
-                if (bankAccount.CheckCredientials(login, pin))
-                {
-                    Current = bankAccount;
-                }
-            }
-
-            bool exit = true;
-            do {
-                Console.WriteLine("Choose Option:");
-                Console.WriteLine("1.Check Balance");
-                Console.WriteLine("2.Withdraw money");
-                Console.WriteLine("3.Deposit money");
-                int cho = int.Parse(Console.ReadLine());
-
-                int amount1 = 0;
-
-                switch (cho)
-                {
-                    case 1:
-                        Console.WriteLine("Current balance: {0}", Current.CheckBalance());
-                        break;
-                    case 2:
-                        Console.WriteLine("Specify amount of money to withdraw");
-                        amount1 = int.Parse(Console.ReadLine());
-                        Current.MakeTransaction(-amount1);
-                        aTM.DepositMoney(int.Parse(Console.ReadLine()));
-                        break;
-                    case 3:
-                        Console.WriteLine("Specify amount of money to deposit");
-                        amount1 = int.Parse(Console.ReadLine());
-                        Current.MakeTransaction(amount1);
-                        aTM.WithdrawMoney(amount1);
-                        break;
-                    case 4:
-                        exit = false;
-                        break;
-                }
-            } while (exit);
-            aTM.DisplayBanknotes();
-        }
-        private bool HandleAccountsVerification(HashSet<BankAccount> bankAccounts,String Login, String Pin)
-        {
-            foreach (BankAccount bankAccount in bankAccounts)
-            {
-                if (bankAccount.CheckCredientials(Login, Pin)) 
-                { 
-                    return true; 
-                }
-            }
-
-            return false;
+            return result;
         }
     }
 }
