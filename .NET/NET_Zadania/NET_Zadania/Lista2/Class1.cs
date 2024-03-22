@@ -1,43 +1,102 @@
-﻿using System;
+﻿using Lista2;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Net.NetworkInformation;
+using System.Runtime.CompilerServices;
 using System.Security;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Lista2
+namespace lista2
 {
-    public class L2z3
+    public class Class1
     {
-        public L2z3()
+        public Class1()
         {
             BankAccount[] accounts = {
                 new BankAccount("papa","1235"),
                 new BankAccount()
             };
-        ATM_Console_Interface ing = new ATM_Console_Interface(accounts);
+            ATM_Console_Interface ing = new ATM_Console_Interface(accounts);
         }
-        
+
     }
 
-    class ATM
+    class BankAccount2
     {
-        private Dictionary<int,int> Banknotes;
+        private String Login,
+                       PIN;
+        private int AccountBalance;
 
-        public ATM()
+        public BankAccount(String login = "login", String pin = "2137", int AccountBalance = 1000)
         {
+            this.AccountBalance = AccountBalance;
+            this.Login = login;
+            this.PIN = pin;
+        }
+
+        public int CheckBalance() { return this.AccountBalance; }
+
+        public bool CanWithdraw(int amount)
+        {
+            return (AccountBalance >= amount) ? true : false;
+        }
+
+        public bool CheckCredientials(String login, String pin)
+        {
+            Dictionary<String, bool> Verification = new Dictionary<string, bool>();
+            Verification.Add("pin", false);
+            Verification.Add("login", false);
+
+            if (login == this.Login)
+            {
+                Verification["login"] = true;
+            }
+
+            if (pin == this.PIN)
+            {
+                Verification["pin"] = true;
+            }
+
+            foreach (bool ver in Verification.Values)
+            {
+                if (!ver) { return false; }
+            }
+
+            return true;
+        }
+
+        public void MakeTransaction(int amount)
+        {
+            if (CanWithdraw(amount))
+            {
+                this.AccountBalance += amount;
+            }
+        }
+    }
+
+    class ATM_2
+	{
+        private Dictionary<int, int> Banknotes;
+        private BankAccount2[] AccountDatabase;
+
+        public ATM_2(BankAccount2[] Database)
+		{
+            this.AccountDatabase = Database;
+
             var rnd = new Random();
 
-            this.Banknotes = new Dictionary<int,int>();
+            this.Banknotes = new Dictionary<int, int>();
             this.Banknotes.Add(500, rnd.Next(1, 10));
             this.Banknotes.Add(200, rnd.Next(1, 10));
             this.Banknotes.Add(100, rnd.Next(1, 10));
-            this.Banknotes.Add(50,  rnd.Next(1, 10));
-            this.Banknotes.Add(20,  rnd.Next(1, 10));
-            this.Banknotes.Add(10,  rnd.Next(1, 2));
+            this.Banknotes.Add(50, rnd.Next(1, 10));
+            this.Banknotes.Add(20, rnd.Next(1, 10));
+            this.Banknotes.Add(10, rnd.Next(1, 2));
 
+            
         }
 
         private int MaxPioniondze()
@@ -55,7 +114,7 @@ namespace Lista2
             return (amount < MaxPioniondze()) ? true : false;
         }
 
-        public void DisplayBanknotes(Dictionary<int,int> banknotes)
+        public void DisplayBanknotes(Dictionary<int, int> banknotes)
         {
             Console.WriteLine(" _________________");
             Console.WriteLine("| Nominal | Ilosc |");
@@ -97,6 +156,23 @@ namespace Lista2
             return withdrawal;
         }
 
+        public void DepositMoney(int amount)
+        {
+            if (amount == (amount / 10) * 10)
+            {
+                Dictionary<int, int> Deposit = CalculateNotes(amount, this.Banknotes);
+
+                foreach (int denominations in Deposit.Keys)
+                {
+                    this.Banknotes[denominations] += Deposit[denominations];
+                }
+            }
+            else
+            {
+                Console.WriteLine("Cannot Insert Coins");
+            }
+        }
+
         public bool WithdrawMoney(int amount)
         {
             if (CanWithdraw(amount))
@@ -105,7 +181,8 @@ namespace Lista2
 
                 foreach (int denominations in WithdrawalMoney.Keys)
                 {
-                    if (this.Banknotes[denominations] - WithdrawalMoney[denominations] >= 0) { 
+                    if (this.Banknotes[denominations] - WithdrawalMoney[denominations] >= 0)
+                    {
                         this.Banknotes[denominations] -= WithdrawalMoney[denominations];
                     }
                     else { return false; }
@@ -117,101 +194,43 @@ namespace Lista2
                 Console.WriteLine("ATM has insufficient amount of money");
                 return false;
             }
-        }  
-        
-        public void DepositMoney(int amount)
+        }
+
+        private bool HandleAccountsVerification(String Login, String Pin)
         {
-            if(amount == (amount / 10) * 10)
+            foreach (BankAccount bankAccount in this.AccountDatabase)
             {
-                Dictionary<int, int> Deposit = CalculateNotes(amount, this.Banknotes);
-                
-                foreach(int denominations in Deposit.Keys)
+                if (bankAccount.CheckCredientials(Login, Pin))
                 {
-                    this.Banknotes[denominations] += Deposit[denominations];
+                    return true;
                 }
             }
-            else
-            {
-                Console.WriteLine("Cannot Insert Coins");
-            }
-        }
-    }
-    
-    class BankAccount
-    {
-        private String Login, 
-                       PIN;
-        private int AccountBalance;
 
-        public BankAccount(String login = "login", String pin = "2137", int AccountBalance = 1000)
+            return false;
+        }
+
+        public static ATM_2 ATM_Console_Interface(BankAccount2[] bankAccounts)
         {
-            this.AccountBalance = AccountBalance;
-            this.Login = login;
-            this.PIN = pin;
-        }
-
-        public int CheckBalance() { return this.AccountBalance; }
-
-        public bool CanWithdraw(int amount)
-        {
-            return (AccountBalance >= Math.Abs(amount)) ? true : false;
-        }
-
-        public bool CheckCredientials(String login, String pin)
-        {
-            Dictionary<String, bool> Verification = new Dictionary<string, bool>();
-            Verification.Add("pin",   false);
-            Verification.Add("login", false);
-
-            if (login == this.Login)
-            {
-                Verification["login"] = true;   
-            }
-
-            if (pin == this.PIN)
-            {
-                Verification["pin"] = true;
-            }
-            
-            foreach (bool ver in  Verification.Values) 
-            {
-                if (!ver) { return false; }
-            }
-
-            return true;
-        }
-
-        public void MakeTransaction(int amount)
-        {
-            if (CanWithdraw(amount)) 
-            {
-                this.AccountBalance += amount;
-            }
-        }
-    }
-
-    class ATM_Console_Interface
-    {
-        public ATM_Console_Interface(BankAccount[] bankAccounts) {
-            ATM aTM = new ATM();
+            ATM_2 aTM = new ATM_2(bankAccounts);
             BankAccount CurrentBankAccount;
 
             aTM.DisplayBanknotes();
 
-            String login = "-", pin;
-            do {
-                if(login != "-") { Console.WriteLine("Incorrect Pin or Login"); }
+            String login = string.Empty, pin = string.Empty;
+            do
+            {
+                if (login != "-") { Console.WriteLine("Incorrect Pin or Login"); }
 
                 Console.WriteLine("Login: ");
                 login = Console.ReadLine();
                 Console.WriteLine("Pin: ");
                 pin = Console.ReadLine();
 
-            } while (HandleAccountsVerification(bankAccounts,login,pin));
+            } while (aTM.HandleAccountsVerification(login, pin));
 
-            BankAccount Current  = new BankAccount();
+            BankAccount Current = new BankAccount();
 
-            foreach (BankAccount bankAccount in bankAccounts)
+            foreach (BankAccount2 bankAccount in bankAccounts)
             {
                 if (bankAccount.CheckCredientials(login, pin))
                 {
@@ -220,7 +239,8 @@ namespace Lista2
             }
 
             bool exit = true;
-            do {
+            do
+            {
                 Console.WriteLine("Choose Option:");
                 Console.WriteLine("1.Check Balance");
                 Console.WriteLine("2.Deposit money");
@@ -244,10 +264,12 @@ namespace Lista2
                         Console.WriteLine("Specify amount of money to withdraw");
                         amount1 = int.Parse(Console.ReadLine());
 
-                        if (amount1 <= Current.CheckBalance()) {
-                            if(aTM.WithdrawMoney(amount1))
-                                Current.MakeTransaction(-Math.Abs(amount1)); 
-                        } else
+                        if (amount1 <= Current.CheckBalance())
+                        {
+                            Current.MakeTransaction(-Math.Abs(amount1));
+                            aTM.WithdrawMoney(amount1);
+                        }
+                        else
                         {
                             Console.WriteLine("Insufficient account funds");
                         }
@@ -259,18 +281,12 @@ namespace Lista2
                 aTM.DisplayBanknotes();
             } while (exit);
             aTM.DisplayBanknotes();
-        }
-        private bool HandleAccountsVerification(BankAccount[] bankAccounts,String Login, String Pin)
-        {
-            foreach (BankAccount bankAccount in bankAccounts)
-            {
-                if (bankAccount.CheckCredientials(Login, Pin)) 
-                { 
-                    return true; 
-                }
-            }
 
-            return false;
+            return aTM;
         }
     }
+
+
+
+
 }
