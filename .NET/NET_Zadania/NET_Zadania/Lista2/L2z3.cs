@@ -13,10 +13,11 @@ namespace Lista2
     {
         public L2z3()
         {
-            HashSet<BankAccount> accounts = new HashSet<BankAccount>();
-            accounts.Add(new BankAccount("papa","1235"));
-            accounts.Add(new BankAccount());
-            ATM_Console_Interface ing = new ATM_Console_Interface(accounts);
+            BankAccount[] accounts = {
+                new BankAccount("papa","1235"),
+                new BankAccount()
+            };
+        ATM_Console_Interface ing = new ATM_Console_Interface(accounts);
         }
         
     }
@@ -35,7 +36,7 @@ namespace Lista2
             this.Banknotes.Add(100, rnd.Next(1, 10));
             this.Banknotes.Add(50,  rnd.Next(1, 10));
             this.Banknotes.Add(20,  rnd.Next(1, 10));
-            this.Banknotes.Add(10,  rnd.Next(1, 10));
+            this.Banknotes.Add(10,  rnd.Next(1, 2));
 
         }
 
@@ -96,20 +97,25 @@ namespace Lista2
             return withdrawal;
         }
 
-        public void WithdrawMoney(int amount)
+        public bool WithdrawMoney(int amount)
         {
             if (CanWithdraw(amount))
             {
                 Dictionary<int, int> WithdrawalMoney = CalculateNotes(amount, this.Banknotes);
-              
-                foreach(int denominations in WithdrawalMoney.Keys)
+
+                foreach (int denominations in WithdrawalMoney.Keys)
                 {
-                    this.Banknotes[denominations] -= WithdrawalMoney[denominations];
+                    if (this.Banknotes[denominations] - WithdrawalMoney[denominations] >= 0) { 
+                        this.Banknotes[denominations] -= WithdrawalMoney[denominations];
+                    }
+                    else { return false; }
                 }
+                return true;
             }
             else
             {
                 Console.WriteLine("ATM has insufficient amount of money");
+                return false;
             }
         }  
         
@@ -186,7 +192,7 @@ namespace Lista2
 
     class ATM_Console_Interface
     {
-        public ATM_Console_Interface(HashSet<BankAccount> bankAccounts) {
+        public ATM_Console_Interface(BankAccount[] bankAccounts) {
             ATM aTM = new ATM();
             BankAccount CurrentBankAccount;
 
@@ -231,23 +237,30 @@ namespace Lista2
                     case 2:
                         Console.WriteLine("Specify amount of money to deposit");
                         amount1 = int.Parse(Console.ReadLine());
-                        Current.MakeTransaction(-amount1);
+                        Current.MakeTransaction(Math.Abs(amount1));
                         aTM.DepositMoney(amount1);
                         break;
                     case 3:
                         Console.WriteLine("Specify amount of money to withdraw");
                         amount1 = int.Parse(Console.ReadLine());
-                        Current.MakeTransaction(-amount1);
-                        aTM.WithdrawMoney(amount1);
+
+                        if (amount1 <= Current.CheckBalance()) { 
+                            Current.MakeTransaction(-Math.Abs(amount1));
+                            aTM.WithdrawMoney(amount1);
+                        } else
+                        {
+                            Console.WriteLine("Insufficient account funds");
+                        }
                         break;
                     case 4:
                         exit = false;
                         break;
                 }
+                aTM.DisplayBanknotes();
             } while (exit);
             aTM.DisplayBanknotes();
         }
-        private bool HandleAccountsVerification(HashSet<BankAccount> bankAccounts,String Login, String Pin)
+        private bool HandleAccountsVerification(BankAccount[] bankAccounts,String Login, String Pin)
         {
             foreach (BankAccount bankAccount in bankAccounts)
             {
