@@ -1,0 +1,10 @@
+J:\listy\.NET\NET_Zadania_Desktop\NET_Zadania_Desktop\NET_Zadania_Desktop\bin\Debug\NET_Zadania_Desktop.exe.config
+J:\listy\.NET\NET_Zadania_Desktop\NET_Zadania_Desktop\NET_Zadania_Desktop\bin\Debug\NET_Zadania_Desktop.exe
+J:\listy\.NET\NET_Zadania_Desktop\NET_Zadania_Desktop\NET_Zadania_Desktop\bin\Debug\NET_Zadania_Desktop.pdb
+J:\listy\.NET\NET_Zadania_Desktop\NET_Zadania_Desktop\NET_Zadania_Desktop\obj\Debug\NET_Zadania_Desktop.csproj.AssemblyReference.cache
+J:\listy\.NET\NET_Zadania_Desktop\NET_Zadania_Desktop\NET_Zadania_Desktop\obj\Debug\NET_Zadania_Desktop.Form1.resources
+J:\listy\.NET\NET_Zadania_Desktop\NET_Zadania_Desktop\NET_Zadania_Desktop\obj\Debug\NET_Zadania_Desktop.Properties.Resources.resources
+J:\listy\.NET\NET_Zadania_Desktop\NET_Zadania_Desktop\NET_Zadania_Desktop\obj\Debug\NET_Zadania_Desktop.csproj.GenerateResource.cache
+J:\listy\.NET\NET_Zadania_Desktop\NET_Zadania_Desktop\NET_Zadania_Desktop\obj\Debug\NET_Zadania_Desktop.csproj.CoreCompileInputs.cache
+J:\listy\.NET\NET_Zadania_Desktop\NET_Zadania_Desktop\NET_Zadania_Desktop\obj\Debug\NET_Zadania_Desktop.exe
+J:\listy\.NET\NET_Zadania_Desktop\NET_Zadania_Desktop\NET_Zadania_Desktop\obj\Debug\NET_Zadania_Desktop.pdb
