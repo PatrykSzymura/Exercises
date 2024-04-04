@@ -8,3 +8,5 @@ J:\listy\.NET\NET_Zadania_Desktop\NET_Zadania_Desktop\NET_Zadania_Desktop\obj\De
 J:\listy\.NET\NET_Zadania_Desktop\NET_Zadania_Desktop\NET_Zadania_Desktop\obj\Debug\NET_Zadania_Desktop.csproj.CoreCompileInputs.cache
 J:\listy\.NET\NET_Zadania_Desktop\NET_Zadania_Desktop\NET_Zadania_Desktop\obj\Debug\NET_Zadania_Desktop.exe
 J:\listy\.NET\NET_Zadania_Desktop\NET_Zadania_Desktop\NET_Zadania_Desktop\obj\Debug\NET_Zadania_Desktop.pdb
+J:\listy\.NET\NET_Zadania_Desktop\NET_Zadania_Desktop\NET_Zadania_Desktop\obj\Debug\NET_Zadania_Desktop.Form2.resources
+J:\listy\.NET\NET_Zadania_Desktop\NET_Zadania_Desktop\NET_Zadania_Desktop\obj\Debug\NET_Zadania_Desktop.Form3.resources

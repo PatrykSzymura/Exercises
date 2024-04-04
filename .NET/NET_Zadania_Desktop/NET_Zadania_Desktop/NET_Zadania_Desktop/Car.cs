@@ -17,6 +17,7 @@ namespace NET_Zadania_Desktop {
         }
 
         public abstract Dictionary<string, string> GetAllValues();
+        public abstract String GetValuesString();
     }
 
     public class FamilyCar : Car
@@ -42,6 +43,7 @@ namespace NET_Zadania_Desktop {
 
             return values;
         }
+        public override string GetValuesString() => $"Rodzinne, {this.Brand}, {this.Model} ";
     }
 
     public class SportCar : Car
@@ -67,6 +69,10 @@ namespace NET_Zadania_Desktop {
 
             return values;
         }
+
+        public override string GetValuesString() => $"Sportowe, {this.Brand}, {this.Model}";        
+
+
     }
 
     public class TerrainCar : Car
@@ -93,6 +99,7 @@ namespace NET_Zadania_Desktop {
 
             return values;
         }
-    
+
+        public override string GetValuesString() => $"Terenowe, {this.Brand}, {this.Model} ";
     }
 }
