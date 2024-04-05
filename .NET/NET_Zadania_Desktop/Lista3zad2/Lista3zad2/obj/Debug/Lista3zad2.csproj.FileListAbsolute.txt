@@ -9,3 +9,6 @@ J:\listy\.NET\NET_Zadania_Desktop\Lista3zad2\Lista3zad2\obj\Debug\Lista3zad2.csp
 J:\listy\.NET\NET_Zadania_Desktop\Lista3zad2\Lista3zad2\obj\Debug\Lista3zad2.exe
 J:\listy\.NET\NET_Zadania_Desktop\Lista3zad2\Lista3zad2\obj\Debug\Lista3zad2.pdb
 J:\listy\.NET\NET_Zadania_Desktop\Lista3zad2\Lista3zad2\obj\Debug\Lista3zad2.Form2.resources
+J:\listy\.NET\NET_Zadania_Desktop\Lista3zad2\Lista3zad2\obj\Debug\Lista3zad2.Form3.resources
+J:\listy\.NET\NET_Zadania_Desktop\Lista3zad2\Lista3zad2\obj\Debug\Lista3zad2.PointController.resources
+J:\listy\.NET\NET_Zadania_Desktop\Lista3zad2\Lista3zad2\obj\Debug\Lista3zad2.R_Controller.resources
