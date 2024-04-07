@@ -29,6 +29,9 @@ namespace NET_Zadania_Desktop
             Catalog.Add(new FamilyCar("Volvo", "C3", "2002", "4m^2", "4"));
             Catalog.Add(new TerrainCar("Renoult", "Laguna", "2001", "4x4", "9"));
 
+            FamilyCar x = new FamilyCar("Volvo", "C3", "2002", "4m^2", "4");
+            x.aaa = 5;
+
             refreshList(); 
         }
 

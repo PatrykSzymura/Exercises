@@ -5,6 +5,7 @@ namespace NET_Zadania_Desktop {
 
     public abstract class Car
     {
+        
         protected string Brand;
         protected string Model;
         protected string ProductionYear;
@@ -22,6 +23,7 @@ namespace NET_Zadania_Desktop {
 
     public class FamilyCar : Car
     {
+        public int aaa;
         protected string TrunkVolume;
         protected string NumberOfSeats;
 

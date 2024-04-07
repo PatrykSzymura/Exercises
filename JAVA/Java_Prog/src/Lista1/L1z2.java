@@ -18,7 +18,7 @@ public class L1z2 {
             factorial *= n;
         }
 
-        Outputs.ConsoleOut("Factorial: "       + factorial);
-        Outputs.ConsoleOut("Sum of Sequence: " + sequence);
+        Outputs.ConsoleOut(STR."Factorial: \{factorial}");
+        Outputs.ConsoleOut(STR."Sum of Sequence: \{sequence}");
     }
 }

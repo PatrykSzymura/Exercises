@@ -94,14 +94,16 @@ namespace Lista3zad2
                     i = 0;
                     break;
                 case 3:
-                    this.numericUpDown1.Value = size;
+                    this.numericUpDown1.Value = ((Polygon)point).Points.Count;
+                    Console.WriteLine(this.numericUpDown1.Value);
                     this.numericUpDown1.Visible = false;
                     int z = 0; 
+                    
 
                     foreach(PointController ControlBox in this.flowLayoutPanel1.Controls)
                     {
                         ControlBox.numericUpDown1.Value = ((Polygon)point).Points[z].x;
-                        ControlBox.numericUpDown1.Value = ((Polygon)point).Points[z].y;
+                        ControlBox.numericUpDown2.Value = ((Polygon)point).Points[z].y;
                         z++;  
                     }
                     break;
@@ -167,11 +169,11 @@ namespace Lista3zad2
                             tmp.Add(new Point(t1, t2));
                         }
                     }
-                    switch (tmp.Count)
+                    switch (this.Type)
                     {
-                        case 1:
+                        case 0:
                             Collection.Add((Point)tmp[0]); break;
-                        case 3:
+                        case 2:
                             Collection.Add(new Triangle((Point)tmp[0], (Point)tmp[1],(Point)tmp[2])); break;
                         default :
                             Point[] arr = new Point[tmp.Count];

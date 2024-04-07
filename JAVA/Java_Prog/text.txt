@@ -1,0 +1,10 @@
+0;Who wrote "To Kill a Mockingbird"?;Harper Lee;J.K. Rowling;Mark Twain;Ernest Hemingway;1
+1;Who painted the Mona Lisa?;Vincent van Gogh;Pablo Picasso;Leonardo da Vinci;Michelangelo;3
+2;What is the chemical symbol for water?;O2;NaCl;CO2;H2O;4
+3;What is the capital of France?;Madrid;Berlin;Rome;Paris;4
+4;What is the main ingredient in guacamole?;Avocado;Lemon;Onion;Tomato;1
+5;Which planet is known as the Red Planet?;Mars;Venus;Saturn;Jupiter;1
+6;What is the tallest mammal in the world?;Elephant;Giraffe;Rhino;Hippo;2
+7;What is the primary language spoken in Brazil?;Portuguese;Spanish;French;English;1
+8;Which country is famous for the sport of cricket?;Australia;India;South Africa;England;2
+9;What is the powerhouse of the cell?;Ribosome;Nucleus;Endoplasmic reticulum;Mitochondria;4
