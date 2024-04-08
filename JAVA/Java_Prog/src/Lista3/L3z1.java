@@ -2,11 +2,12 @@ package Lista3;
 
 import Library.Outputs;
 
+
 import javax.swing.*;
 import java.io.*;
 import java.util.*;
 
-class Question {
+class Question implements Serializable{
     public   int _QuestionNumber = 0;
     private final String _Question ;
     private final String Answer;
@@ -65,6 +66,17 @@ class Question {
 }
 
 class FileHandler {
+    public static boolean fileExists(String fileName) {
+        File file = new File(fileName);
+        return file.exists();
+    }
+
+    public static void deleteFile(String fileName) {
+        File file = new File(fileName);
+        if (file.exists())
+            file.delete();
+    }
+
     public static void saveQuizToFile(String fileName, List<Question> Quiz) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
             int num = 0;
@@ -108,6 +120,65 @@ class FileHandler {
         }
         return data;
     }
+
+    public static void SaveResultBinary(String Result){
+        try{
+            DataOutputStream DatOutStr = new DataOutputStream(new FileOutputStream("wyniki.dat",true));
+            DatOutStr.writeUTF(Result);
+            DatOutStr.close();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    public static List<String> ReadResultBinary() {
+        List<String> Results = new ArrayList<>();
+        try {
+            DataInputStream DatInpStr = new DataInputStream(new FileInputStream("wyniki.dat"));
+
+            // Loop until the end of the file is reached
+            while (DatInpStr.available() > 0) {
+                String tmp = DatInpStr.readUTF();
+                Results.add(tmp);
+                Outputs.ConsoleOut(tmp);
+            }
+
+            DatInpStr.close();
+        } catch (IOException e) {
+            //throw new RuntimeException(e);
+        }
+        return Results;
+    }
+
+    public static void SaveProgress(Object... Values){
+        try{
+            ObjectOutputStream ObjOutStr = new ObjectOutputStream(new FileOutputStream("Save.ser"));
+
+            for(Object V : Values)
+                ObjOutStr.writeObject(V);
+
+            ObjOutStr.close();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static Object[] RestoreProgress() {
+        List<Object> values = new ArrayList<>();
+        try (ObjectInputStream ObjInpStr = new ObjectInputStream(new FileInputStream("Save.ser"))) {
+            while (true) {
+                try {
+                    Object Obj = ObjInpStr.readObject();
+                    values.add(Obj);
+                } catch (EOFException e) {
+                    // End of file reached
+                    break;
+                }
+            }
+        } catch (IOException | ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+        return values.toArray();
+    }
 }
 
 class WindowHandler{
@@ -128,61 +199,81 @@ class WindowHandler{
     public static String UserLoginWindow(String message) {
         return JOptionPane.showInputDialog(null, message);
     }
+
+    public static void displayResults(List<String> list) {
+        StringBuilder stringBuilder = new StringBuilder();
+        for (String item : list) {
+            stringBuilder.append(item).append("\n"); // Append each item with a newline character
+        }
+        String message = stringBuilder.toString();
+        JOptionPane.showMessageDialog(null, message, "Students Results", JOptionPane.INFORMATION_MESSAGE);
+    }
 }
 
 public class L3z1 implements Serializable{
 
     private List<Question> Quiz;
-    private String UserName;
+    private final String UserName;
+    private int Score;
+    private int CurrentQuestion = 0;
 
     public L3z1() {
-        // Load state from the previous session
-        L3z1 previousState = loadState();
 
-        // If previous state exists and the user name matches, use it; otherwise initialize the quiz
-        if (previousState != null && previousState.UserName != null &&
-                previousState.UserName.equals(WindowHandler.UserLoginWindow("Write Your Name"))) {
-            this.Quiz = previousState.Quiz;
-        } else {
+        if (!FileHandler.fileExists("Save.ser")) {
             CsvToQuiz2();
+
+            this.UserName = WindowHandler.UserLoginWindow("Write Your Name");
+
+            if (!Objects.equals(this.UserName, "Admin"))
+                StartQuiz();
+            else
+                WindowHandler.displayResults(FileHandler.ReadResultBinary());
+        }else {
+            Object[] RestoredData = FileHandler.RestoreProgress();
+            this.UserName = (String) RestoredData[0];
+            this.Score = (int) RestoredData[1];
+            this.CurrentQuestion = (int) RestoredData[2];
+            this.Quiz = (List<Question>) RestoredData[3];
+
+            FileHandler.deleteFile("Save.ser");
+
+            StartQuiz(true);
         }
-
-        // Set the UserName
-        this.UserName = WindowHandler.UserLoginWindow("Write Your Name");
-
-        StartQuiz();
-    }
-
-
-    public L3z1(int x) {
-        CsvToQuiz2();
-        //Collections.shuffle(Quiz);
-        //FileHandler.saveQuizToFile("text.txt",Quiz);
-        this.UserName = WindowHandler.UserLoginWindow("Write Your Name");
-        StartQuiz();
-
-        //Outputs.ConsoleOut("text");
     }
 
     private void StartQuiz(){
         for (Question Q : Quiz){
             int cho;
             String[] Answers = Q.GetShuffledAnswers();
+
             cho = WindowHandler.QuestionWindow(Q.GetQuestion(),Answers);
 
-            Outputs.ConsoleOut(STR."\{Q._QuestionNumber};\{Q.IsCorrectAnswer(Answers[cho])}");
-            saveState(this); // zapisanie stanu aplikacji co pytanie
+            this.Score += (Q.IsCorrectAnswer(Answers[cho])) ? 1 : 0;
+            this.CurrentQuestion++;
+            Outputs.ConsoleOut(STR."\{Q._QuestionNumber};\{Q.IsCorrectAnswer(Answers[cho])} \{GetScorePercent()}");
+
+            FileHandler.SaveProgress(this.UserName,this.Score,this.CurrentQuestion,this.Quiz);
         }
+        FileHandler.SaveResultBinary(STR."\{this.UserName} : \{GetScorePercent()}");
+        FileHandler.deleteFile("Save.ser");
     }
 
-    private void CsvToQuiz(){
-        var x = FileHandler.readDataFromFile("QuestionDB.csv");
-        this.Quiz = new ArrayList<>();
-        for(var xd : x){
-            assert false;
-            Quiz.add(new Question(xd[1],xd[2],xd[3],xd[4],xd[5]));
+    private void StartQuiz(boolean Resumed){
+        for (int i = this.CurrentQuestion; i < this.Quiz.size(); i++){
+            int cho;
+            Question Q = this.Quiz.get(i);
+            String[] Answers = Q.GetShuffledAnswers();
+
+            cho = WindowHandler.QuestionWindow(Q.GetQuestion(),Answers);
+
+            this.Score += (Q.IsCorrectAnswer(Answers[cho])) ? 1 : 0;
+
+            Outputs.ConsoleOut(STR."\{Q._QuestionNumber};\{Q.IsCorrectAnswer(Answers[cho])} \{GetScorePercent()}");
+            FileHandler.SaveProgress(this.UserName,this.Score,this.CurrentQuestion,this.Quiz);
+
         }
-        //Outputs.ConsoleOut("text");
+        FileHandler.SaveResultBinary(STR."\{this.UserName} : \{GetScorePercent()}");
+        FileHandler.deleteFile("Save.ser");
     }
 
     private void CsvToQuiz2(){
@@ -193,23 +284,10 @@ public class L3z1 implements Serializable{
         }
     }
 
-    private static void saveState(L3z1 state) {
-        try (FileOutputStream fileOut = new FileOutputStream("state.ser");
-             ObjectOutputStream out = new ObjectOutputStream(fileOut)) {
-            out.writeObject(state);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    private String GetScorePercent(){
+        double tmp  = ((double) this.Score / this.Quiz.size()) * 100;
+        return STR."\{(int) tmp}%";
     }
 
-    private static L3z1 loadState() {
-        L3z1 state = null;
-        try (FileInputStream fileIn = new FileInputStream("state.ser");
-             ObjectInputStream in = new ObjectInputStream(fileIn)) {
-            state = (L3z1) in.readObject();
-        } catch (IOException | ClassNotFoundException e) {
-            // If file does not exist or class not found, return null
-        }
-        return state;
-    }
+
 }
