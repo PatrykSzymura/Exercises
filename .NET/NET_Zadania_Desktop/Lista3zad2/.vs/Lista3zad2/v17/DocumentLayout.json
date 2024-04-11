@@ -3,11 +3,11 @@
   "WorkspaceRootPath": "J:\\listy\\.NET\\NET_Zadania_Desktop\\Lista3zad2\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{DF906578-EAD2-4514-9AFF-B7CEC2021AAD}|Lista3zad2\\Lista3zad2.csproj|J:\\listy\\.NET\\NET_Zadania_Desktop\\Lista3zad2\\lista3zad2\\point.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{DF906578-EAD2-4514-9AFF-B7CEC2021AAD}|Lista3zad2\\Lista3zad2.csproj|j:\\listy\\.net\\net_zadania_desktop\\lista3zad2\\lista3zad2\\point.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DF906578-EAD2-4514-9AFF-B7CEC2021AAD}|Lista3zad2\\Lista3zad2.csproj|solutionrelative:lista3zad2\\point.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DF906578-EAD2-4514-9AFF-B7CEC2021AAD}|Lista3zad2\\Lista3zad2.csproj|j:\\listy\\.net\\net_zadania_desktop\\lista3zad2\\lista3zad2\\form3.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{DF906578-EAD2-4514-9AFF-B7CEC2021AAD}|Lista3zad2\\Lista3zad2.csproj|J:\\listy\\.NET\\NET_Zadania_Desktop\\Lista3zad2\\lista3zad2\\form3.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DF906578-EAD2-4514-9AFF-B7CEC2021AAD}|Lista3zad2\\Lista3zad2.csproj|solutionrelative:lista3zad2\\form3.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -56,7 +56,7 @@
               "RelativeDocumentMoniker": "Lista3zad2\\Point.cs",
               "ToolTip": "J:\\listy\\.NET\\NET_Zadania_Desktop\\Lista3zad2\\Lista3zad2\\Point.cs",
               "RelativeToolTip": "Lista3zad2\\Point.cs",
-              "ViewState": "AQIAADoAAAAAAAAAAAAuwFAAAAAaAAAA",
+              "ViewState": "AQIAACIAAAAAAAAAAAAAAFAAAAAaAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-03T22:40:11.136Z",
               "IsPinned": true,
@@ -84,8 +84,7 @@
               "RelativeToolTip": "Lista3zad2\\Form3.cs",
               "ViewState": "AQIAABMAAAAAAAAAAAAwwHMAAAAeAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-04T19:48:40.786Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-04T19:48:40.786Z"
             },
             {
               "$type": "Document",

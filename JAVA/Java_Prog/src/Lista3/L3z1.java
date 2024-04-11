@@ -196,6 +196,21 @@ class WindowHandler{
                 WButtons,           // options (buttons)
                 WButtons[0]);
     }
+
+    public static boolean AskToRestoreProgress(){
+        int cho = JOptionPane.showOptionDialog(
+                null,
+                "Do You Want Restore Last Exam ?",
+                "Question",
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.QUESTION_MESSAGE,
+                null,
+                new String[]{"Yes", "No"},
+                null
+                );
+        return cho == JOptionPane.YES_OPTION;
+    }
+
     public static String UserLoginWindow(String message) {
         return JOptionPane.showInputDialog(null, message);
     }
@@ -213,12 +228,12 @@ class WindowHandler{
 public class L3z1 implements Serializable{
 
     private List<Question> Quiz;
-    private final String UserName;
+    private String UserName;
     private int Score;
     private int CurrentQuestion = 0;
+    private int MinToPass;
 
     public L3z1() {
-
         if (!FileHandler.fileExists("Save.ser")) {
             CsvToQuiz2();
 
@@ -253,7 +268,12 @@ public class L3z1 implements Serializable{
             Outputs.ConsoleOut(STR."\{Q._QuestionNumber};\{Q.IsCorrectAnswer(Answers[cho])} \{GetScorePercent()}");
 
             FileHandler.SaveProgress(this.UserName,this.Score,this.CurrentQuestion,this.Quiz);
+
         }
+        JOptionPane.showConfirmDialog(null,
+                STR."Test Result :\{GetScorePercent()}\n \{(this.Score >= MinToPass) ? "Passed":"Failed"}",
+                "Result",
+                JOptionPane.INFORMATION_MESSAGE);
         FileHandler.SaveResultBinary(STR."\{this.UserName} : \{GetScorePercent()}");
         FileHandler.deleteFile("Save.ser");
     }
@@ -279,8 +299,13 @@ public class L3z1 implements Serializable{
     private void CsvToQuiz2(){
         var QuestionList = FileHandler.readDataFromFile("QuestionDB.csv");
         this.Quiz = new ArrayList<>();
+        int i = 0;
         for (var Q : QuestionList){
-            Quiz.add(new Question(Q));
+            if (i == 0){
+              this.MinToPass = Integer.parseInt(Q[1]);
+              i++;
+            }else
+                Quiz.add(new Question(Q));
         }
     }
 
