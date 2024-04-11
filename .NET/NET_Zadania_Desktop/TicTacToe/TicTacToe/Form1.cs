@@ -30,7 +30,20 @@ namespace TicTacToe
             Game.MakeMove(ClickPosition.Value.Y, ClickPosition.Value.X);
 
             Game.DisplayBoard();
-            //Game.GetValueOnPos(ClickPosition.Value.Y, ClickPosition.Value.X);
+            if (Game.IsOver())
+            {
+                //Console.WriteLine("pomidor");
+                int WhoWon = 0;
+                if (Game.CheckFullBoard()) 
+                    WhoWon = 2;
+                else if (Game.GetTurn())       
+                    WhoWon = 0;
+                else                           
+                    WhoWon = 1;
+                GameEndPopup popup = new GameEndPopup(WhoWon);
+                popup.Show();
+
+            }
 
         }
         

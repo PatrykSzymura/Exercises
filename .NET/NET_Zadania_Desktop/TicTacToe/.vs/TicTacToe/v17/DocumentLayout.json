@@ -1,25 +1,29 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "J:\\listy\\.NET\\NET_Zadania_Desktop\\TicTacToe\\",
+  "WorkspaceRootPath": "C:\\Users\\Admin\\Documents\\GitHub\\listy\\.NET\\NET_Zadania_Desktop\\TicTacToe\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B47E92EB-2C59-4C4C-B4CB-BD75AADEABB9}|TicTacToe\\TicTacToe.csproj|J:\\listy\\.NET\\NET_Zadania_Desktop\\TicTacToe\\tictactoe\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{B47E92EB-2C59-4C4C-B4CB-BD75AADEABB9}|TicTacToe\\TicTacToe.csproj|c:\\users\\admin\\documents\\github\\listy\\.net\\net_zadania_desktop\\tictactoe\\tictactoe\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B47E92EB-2C59-4C4C-B4CB-BD75AADEABB9}|TicTacToe\\TicTacToe.csproj|solutionrelative:tictactoe\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B47E92EB-2C59-4C4C-B4CB-BD75AADEABB9}|TicTacToe\\TicTacToe.csproj|J:\\listy\\.NET\\NET_Zadania_Desktop\\TicTacToe\\tictactoe\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B47E92EB-2C59-4C4C-B4CB-BD75AADEABB9}|TicTacToe\\TicTacToe.csproj|solutionrelative:tictactoe\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B47E92EB-2C59-4C4C-B4CB-BD75AADEABB9}|TicTacToe\\TicTacToe.csproj|c:\\users\\admin\\documents\\github\\listy\\.net\\net_zadania_desktop\\tictactoe\\tictactoe\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B47E92EB-2C59-4C4C-B4CB-BD75AADEABB9}|TicTacToe\\TicTacToe.csproj|solutionrelative:tictactoe\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B47E92EB-2C59-4C4C-B4CB-BD75AADEABB9}|TicTacToe\\TicTacToe.csproj|j:\\listy\\.net\\net_zadania_desktop\\tictactoe\\tictactoe\\tictactoe.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{B47E92EB-2C59-4C4C-B4CB-BD75AADEABB9}|TicTacToe\\TicTacToe.csproj|C:\\Users\\Admin\\Documents\\GitHub\\listy\\.NET\\NET_Zadania_Desktop\\TicTacToe\\tictactoe\\tictactoe.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B47E92EB-2C59-4C4C-B4CB-BD75AADEABB9}|TicTacToe\\TicTacToe.csproj|solutionrelative:tictactoe\\tictactoe.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B47E92EB-2C59-4C4C-B4CB-BD75AADEABB9}|TicTacToe\\TicTacToe.csproj|J:\\listy\\.NET\\NET_Zadania_Desktop\\TicTacToe\\tictactoe\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{B47E92EB-2C59-4C4C-B4CB-BD75AADEABB9}|TicTacToe\\TicTacToe.csproj|C:\\Users\\Admin\\Documents\\GitHub\\listy\\.NET\\NET_Zadania_Desktop\\TicTacToe\\tictactoe\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{B47E92EB-2C59-4C4C-B4CB-BD75AADEABB9}|TicTacToe\\TicTacToe.csproj|solutionrelative:tictactoe\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B47E92EB-2C59-4C4C-B4CB-BD75AADEABB9}|TicTacToe\\TicTacToe.csproj|J:\\listy\\.NET\\NET_Zadania_Desktop\\TicTacToe\\tictactoe\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{B47E92EB-2C59-4C4C-B4CB-BD75AADEABB9}|TicTacToe\\TicTacToe.csproj|C:\\Users\\Admin\\Documents\\GitHub\\listy\\.NET\\NET_Zadania_Desktop\\TicTacToe\\tictactoe\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B47E92EB-2C59-4C4C-B4CB-BD75AADEABB9}|TicTacToe\\TicTacToe.csproj|solutionrelative:tictactoe\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B47E92EB-2C59-4C4C-B4CB-BD75AADEABB9}|TicTacToe\\TicTacToe.csproj|C:\\Users\\Admin\\Documents\\GitHub\\listy\\.NET\\NET_Zadania_Desktop\\TicTacToe\\tictactoe\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B47E92EB-2C59-4C4C-B4CB-BD75AADEABB9}|TicTacToe\\TicTacToe.csproj|solutionrelative:tictactoe\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -36,11 +40,11 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Form1.cs",
-              "DocumentMoniker": "J:\\listy\\.NET\\NET_Zadania_Desktop\\TicTacToe\\TicTacToe\\Form1.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\GitHub\\listy\\.NET\\NET_Zadania_Desktop\\TicTacToe\\TicTacToe\\Form1.cs",
               "RelativeDocumentMoniker": "TicTacToe\\Form1.cs",
-              "ToolTip": "J:\\listy\\.NET\\NET_Zadania_Desktop\\TicTacToe\\TicTacToe\\Form1.cs",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\GitHub\\listy\\.NET\\NET_Zadania_Desktop\\TicTacToe\\TicTacToe\\Form1.cs",
               "RelativeToolTip": "TicTacToe\\Form1.cs",
-              "ViewState": "AQIAABwAAAAAAAAAAAAUwBkAAABBAAAA",
+              "ViewState": "AQIAADIAAAAAAAAAAAAAACkAAAAfAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-09T23:59:46.297Z",
               "IsPinned": true,
@@ -48,11 +52,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "Form1.Designer.cs",
-              "DocumentMoniker": "J:\\listy\\.NET\\NET_Zadania_Desktop\\TicTacToe\\TicTacToe\\Form1.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\GitHub\\listy\\.NET\\NET_Zadania_Desktop\\TicTacToe\\TicTacToe\\Form1.Designer.cs",
               "RelativeDocumentMoniker": "TicTacToe\\Form1.Designer.cs",
-              "ToolTip": "J:\\listy\\.NET\\NET_Zadania_Desktop\\TicTacToe\\TicTacToe\\Form1.Designer.cs",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\GitHub\\listy\\.NET\\NET_Zadania_Desktop\\TicTacToe\\TicTacToe\\Form1.Designer.cs",
               "RelativeToolTip": "TicTacToe\\Form1.Designer.cs",
               "ViewState": "AQIAABgAAAAAAAAAAAApwDcAAABEAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -62,27 +66,26 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "Program.cs",
-              "DocumentMoniker": "J:\\listy\\.NET\\NET_Zadania_Desktop\\TicTacToe\\TicTacToe\\Program.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\GitHub\\listy\\.NET\\NET_Zadania_Desktop\\TicTacToe\\TicTacToe\\Program.cs",
               "RelativeDocumentMoniker": "TicTacToe\\Program.cs",
-              "ToolTip": "J:\\listy\\.NET\\NET_Zadania_Desktop\\TicTacToe\\TicTacToe\\Program.cs",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\GitHub\\listy\\.NET\\NET_Zadania_Desktop\\TicTacToe\\TicTacToe\\Program.cs",
               "RelativeToolTip": "TicTacToe\\Program.cs",
               "ViewState": "AQIAAAgAAAAAAAAAAAA3wAQAAAAbAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-09T23:59:31.615Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
               "Title": "TicTacToe.cs",
-              "DocumentMoniker": "J:\\listy\\.NET\\NET_Zadania_Desktop\\TicTacToe\\TicTacToe\\TicTacToe.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\GitHub\\listy\\.NET\\NET_Zadania_Desktop\\TicTacToe\\TicTacToe\\TicTacToe.cs",
               "RelativeDocumentMoniker": "TicTacToe\\TicTacToe.cs",
-              "ToolTip": "J:\\listy\\.NET\\NET_Zadania_Desktop\\TicTacToe\\TicTacToe\\TicTacToe.cs",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\GitHub\\listy\\.NET\\NET_Zadania_Desktop\\TicTacToe\\TicTacToe\\TicTacToe.cs",
               "RelativeToolTip": "TicTacToe\\TicTacToe.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAgwBMAAAAyAAAA",
+              "ViewState": "AQIAABoAAAAAAAAAAAA9wG8AAAAMAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-09T23:37:13.254Z",
               "IsPinned": true,
@@ -92,14 +95,27 @@
               "$type": "Document",
               "DocumentIndex": 3,
               "Title": "Form1.cs [Projekt]",
-              "DocumentMoniker": "J:\\listy\\.NET\\NET_Zadania_Desktop\\TicTacToe\\TicTacToe\\Form1.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\GitHub\\listy\\.NET\\NET_Zadania_Desktop\\TicTacToe\\TicTacToe\\Form1.cs",
               "RelativeDocumentMoniker": "TicTacToe\\Form1.cs",
-              "ToolTip": "J:\\listy\\.NET\\NET_Zadania_Desktop\\TicTacToe\\TicTacToe\\Form1.cs [Projekt]",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\GitHub\\listy\\.NET\\NET_Zadania_Desktop\\TicTacToe\\TicTacToe\\Form1.cs [Projekt]",
               "RelativeToolTip": "TicTacToe\\Form1.cs [Projekt]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-09T22:07:03.506Z",
               "IsPinned": true,
               "EditorCaption": " [Projekt]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Form2.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\GitHub\\listy\\.NET\\NET_Zadania_Desktop\\TicTacToe\\TicTacToe\\Form2.cs",
+              "RelativeDocumentMoniker": "TicTacToe\\Form2.cs",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\GitHub\\listy\\.NET\\NET_Zadania_Desktop\\TicTacToe\\TicTacToe\\Form2.cs",
+              "RelativeToolTip": "TicTacToe\\Form2.cs",
+              "ViewState": "AQIAAAcAAAAAAAAAAAAtwBkAAAAWAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-11T06:39:59.163Z",
+              "EditorCaption": ""
             }
           ]
         }

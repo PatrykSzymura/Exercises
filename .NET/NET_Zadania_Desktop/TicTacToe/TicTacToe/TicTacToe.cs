@@ -18,9 +18,6 @@ namespace TicTacToe
             this.Board = new List<int[]>(); 
             for (int i = 0; i < 3; i++)
                 this.Board.Add(new int[] { 0, 0, 0 });
-            
-
-            DisplayBoard(); 
         }
         public void GetValueOnPos(int a, int b) 
         {
@@ -101,9 +98,18 @@ namespace TicTacToe
             return false;
         }
     
+        public bool CheckFullBoard()
+        {
+            foreach (var row in this.Board)
+                foreach(var field in row)
+                    if(field == 0) 
+                        return false;
+            return true;
+        }
+
         public bool IsOver()
         {
-            return (CheckDiagonaly() && CheckVerticaly() && CheckHorizontaly());
+            return (CheckDiagonaly() || CheckVerticaly() || CheckHorizontaly() || CheckFullBoard());
         }
 
         public bool GetTurn()

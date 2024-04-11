@@ -8,3 +8,14 @@ J:\listy\.NET\NET_Zadania_Desktop\TicTacToe\TicTacToe\obj\Debug\TicTacToe.csproj
 J:\listy\.NET\NET_Zadania_Desktop\TicTacToe\TicTacToe\obj\Debug\TicTacToe.csproj.CoreCompileInputs.cache
 J:\listy\.NET\NET_Zadania_Desktop\TicTacToe\TicTacToe\obj\Debug\TicTacToe.exe
 J:\listy\.NET\NET_Zadania_Desktop\TicTacToe\TicTacToe\obj\Debug\TicTacToe.pdb
+C:\Users\Admin\Documents\GitHub\listy\.NET\NET_Zadania_Desktop\TicTacToe\TicTacToe\bin\Debug\TicTacToe.exe.config
+C:\Users\Admin\Documents\GitHub\listy\.NET\NET_Zadania_Desktop\TicTacToe\TicTacToe\bin\Debug\TicTacToe.exe
+C:\Users\Admin\Documents\GitHub\listy\.NET\NET_Zadania_Desktop\TicTacToe\TicTacToe\bin\Debug\TicTacToe.pdb
+C:\Users\Admin\Documents\GitHub\listy\.NET\NET_Zadania_Desktop\TicTacToe\TicTacToe\obj\Debug\TicTacToe.csproj.AssemblyReference.cache
+C:\Users\Admin\Documents\GitHub\listy\.NET\NET_Zadania_Desktop\TicTacToe\TicTacToe\obj\Debug\TicTacToe.Form1.resources
+C:\Users\Admin\Documents\GitHub\listy\.NET\NET_Zadania_Desktop\TicTacToe\TicTacToe\obj\Debug\TicTacToe.Properties.Resources.resources
+C:\Users\Admin\Documents\GitHub\listy\.NET\NET_Zadania_Desktop\TicTacToe\TicTacToe\obj\Debug\TicTacToe.csproj.GenerateResource.cache
+C:\Users\Admin\Documents\GitHub\listy\.NET\NET_Zadania_Desktop\TicTacToe\TicTacToe\obj\Debug\TicTacToe.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Documents\GitHub\listy\.NET\NET_Zadania_Desktop\TicTacToe\TicTacToe\obj\Debug\TicTacToe.exe
+C:\Users\Admin\Documents\GitHub\listy\.NET\NET_Zadania_Desktop\TicTacToe\TicTacToe\obj\Debug\TicTacToe.pdb
+C:\Users\Admin\Documents\GitHub\listy\.NET\NET_Zadania_Desktop\TicTacToe\TicTacToe\obj\Debug\TicTacToe.GameEndPopup.resources
