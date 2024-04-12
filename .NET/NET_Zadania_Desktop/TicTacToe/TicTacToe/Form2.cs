@@ -28,5 +28,12 @@ namespace TicTacToe
                     break;
             }
         }
+
+        private void GameEndPopup_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Console.WriteLine("XD");
+            Form1 CloseMe = (Form1)Application.OpenForms[0];
+            CloseMe.Close();
+        }
     }
 }

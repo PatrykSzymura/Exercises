@@ -49,6 +49,7 @@
             this.Controls.Add(this.label1);
             this.Name = "GameEndPopup";
             this.Text = "Game End";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.GameEndPopup_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 

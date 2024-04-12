@@ -12,13 +12,21 @@ namespace TicTacToe
     {
         protected List<int[]> Board;
         protected bool Turn;
+        protected bool Singleplayer;
 
-        public TicTacToe()
+        public TicTacToe(bool SinglePlayer)
         {
+            this.Singleplayer = SinglePlayer;
             this.Board = new List<int[]>(); 
             for (int i = 0; i < 3; i++)
                 this.Board.Add(new int[] { 0, 0, 0 });
         }
+
+        protected void Bot()
+        {
+            NextTurn();
+        }
+
         public void GetValueOnPos(int a, int b) 
         {
             Console.WriteLine(this.Board[a][b]);
@@ -54,7 +62,10 @@ namespace TicTacToe
         public void MakeMove(int Y, int X)
         {
             this.Board[Y][X] = (this.Turn) ? -1 : 1;
-            NextTurn();
+            if (this.Singleplayer) 
+                Bot();
+            else
+                NextTurn();
         }
 
         private bool CheckHorizontaly()
@@ -91,8 +102,8 @@ namespace TicTacToe
 
             Counter = 0;
 
-            for (int i = this.Board.Count-1; i >= 0; i--)// /
-                Counter += this.Board[i][i];
+            for (int i = this.Board.Count - 1; i >= 0; i--) // /
+                Counter += this.Board[Math.Abs(i-2)][i];
             if (Counter == this.Board.Count || Counter == -this.Board.Count) return true;
 
             return false;

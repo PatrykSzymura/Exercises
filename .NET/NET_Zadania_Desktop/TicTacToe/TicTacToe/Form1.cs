@@ -16,14 +16,14 @@ namespace TicTacToe
         public Form1()
         {
             InitializeComponent();
-            Game = new TicTacToe();           
+            Game = new TicTacToe(true);           
         }
 
-        private void btn_0_0_Click(object sender, EventArgs e)
+        private async void btn_0_0_Click(object sender, EventArgs e)
         {
             
-            ((System.Windows.Forms.Button)sender).Text = Game.GetChar();
-            ((System.Windows.Forms.Button)sender).Enabled = false;
+            ((System.Windows.Forms.Button) sender).Text = Game.GetChar();
+            ((System.Windows.Forms.Button) sender).Enabled = false;
 
             Point? ClickPosition =  GetIndex(this.tableLayoutPanel1, tableLayoutPanel1.PointToClient(Cursor.Position));
 
@@ -34,15 +34,19 @@ namespace TicTacToe
             {
                 //Console.WriteLine("pomidor");
                 int WhoWon = 0;
+
                 if (Game.CheckFullBoard()) 
                     WhoWon = 2;
                 else if (Game.GetTurn())       
                     WhoWon = 0;
                 else                           
                     WhoWon = 1;
-                GameEndPopup popup = new GameEndPopup(WhoWon);
-                popup.Show();
+                foreach (var btn in this.tableLayoutPanel1.Controls)
+                    ((System.Windows.Forms.Button) btn).Enabled = false;
 
+                GameEndPopup popup = new GameEndPopup(WhoWon);
+                //Hide();
+                popup.Show();
             }
 
         }

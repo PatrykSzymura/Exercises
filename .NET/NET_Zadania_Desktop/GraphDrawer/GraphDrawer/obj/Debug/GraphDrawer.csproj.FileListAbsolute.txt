@@ -1,0 +1,11 @@
+J:\listy\.NET\NET_Zadania_Desktop\GraphDrawer\GraphDrawer\bin\Debug\GraphDrawer.exe.config
+J:\listy\.NET\NET_Zadania_Desktop\GraphDrawer\GraphDrawer\bin\Debug\GraphDrawer.exe
+J:\listy\.NET\NET_Zadania_Desktop\GraphDrawer\GraphDrawer\bin\Debug\GraphDrawer.pdb
+J:\listy\.NET\NET_Zadania_Desktop\GraphDrawer\GraphDrawer\obj\Debug\GraphDrawer.csproj.AssemblyReference.cache
+J:\listy\.NET\NET_Zadania_Desktop\GraphDrawer\GraphDrawer\obj\Debug\GraphDrawer.Form1.resources
+J:\listy\.NET\NET_Zadania_Desktop\GraphDrawer\GraphDrawer\obj\Debug\GraphDrawer.Properties.Resources.resources
+J:\listy\.NET\NET_Zadania_Desktop\GraphDrawer\GraphDrawer\obj\Debug\GraphDrawer.csproj.GenerateResource.cache
+J:\listy\.NET\NET_Zadania_Desktop\GraphDrawer\GraphDrawer\obj\Debug\GraphDrawer.csproj.CoreCompileInputs.cache
+J:\listy\.NET\NET_Zadania_Desktop\GraphDrawer\GraphDrawer\obj\Debug\GraphDrawer.exe
+J:\listy\.NET\NET_Zadania_Desktop\GraphDrawer\GraphDrawer\obj\Debug\GraphDrawer.pdb
+J:\listy\.NET\NET_Zadania_Desktop\GraphDrawer\GraphDrawer\obj\Debug\GraphDrawer.Form2.resources
