@@ -29,7 +29,6 @@ namespace TotalPainComander
 
         private double BytesToGigabytes(long bytes) => Math.Round((double)bytes / 1073741824, 2); // 1 gigabyte = 1024^3 bytes 
 
-
         private string GetDriveLetter(string Directory) => Directory[0].ToString();
 
         private string GetDiskData(string Directory)
@@ -62,18 +61,14 @@ namespace TotalPainComander
 
         private void tbn_GoBack_Click(object sender, EventArgs e)
         {
-            if ( this.WindowFiles.CanGoBack)
-            {
+            if (this.WindowFiles.CanGoBack)
                 this.WindowFiles.GoBack();
-            }
         }
 
         private void btn_GoDeep_Click(object sender, EventArgs e)
         {
             if (this.WindowFiles.CanGoForward)
-            {
                 this.WindowFiles.GoForward();
-            }
         }
     }
 }

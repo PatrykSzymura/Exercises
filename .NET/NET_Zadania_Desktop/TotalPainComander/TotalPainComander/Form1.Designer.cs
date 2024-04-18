@@ -38,14 +38,14 @@
             this.Contents.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Contents.Location = new System.Drawing.Point(0, 0);
             this.Contents.Name = "Contents";
-            this.Contents.Size = new System.Drawing.Size(1314, 686);
+            this.Contents.Size = new System.Drawing.Size(1324, 701);
             this.Contents.TabIndex = 0;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1314, 686);
+            this.ClientSize = new System.Drawing.Size(1324, 701);
             this.Controls.Add(this.Contents);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
