@@ -30,6 +30,8 @@
         {
             this.label_Directory = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label_DiskSpace = new System.Windows.Forms.Label();
             this.DiskUsageBar = new System.Windows.Forms.ProgressBar();
             this.WindowFiles = new System.Windows.Forms.WebBrowser();
@@ -37,8 +39,6 @@
             this.textBox_Directory = new System.Windows.Forms.TextBox();
             this.btnn_GoInto = new System.Windows.Forms.Button();
             this.tbn_GoBack = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -70,6 +70,25 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(444, 642);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(137, 23);
+            this.button1.TabIndex = 10;
+            this.button1.Text = "Preview";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.Enabled = false;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(60, 642);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(378, 21);
+            this.comboBox1.TabIndex = 9;
+            // 
             // label_DiskSpace
             // 
             this.label_DiskSpace.AutoSize = true;
@@ -81,7 +100,7 @@
             // 
             // DiskUsageBar
             // 
-            this.DiskUsageBar.Location = new System.Drawing.Point(123, 671);
+            this.DiskUsageBar.Location = new System.Drawing.Point(117, 671);
             this.DiskUsageBar.Name = "DiskUsageBar";
             this.DiskUsageBar.Size = new System.Drawing.Size(521, 19);
             this.DiskUsageBar.Step = 100;
@@ -133,23 +152,6 @@
             this.tbn_GoBack.Text = "<";
             this.tbn_GoBack.UseVisualStyleBackColor = true;
             this.tbn_GoBack.Click += new System.EventHandler(this.tbn_GoBack_Click);
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(60, 642);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(378, 21);
-            this.comboBox1.TabIndex = 9;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(444, 642);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(137, 23);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "Preview";
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // Panel
             // 

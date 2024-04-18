@@ -1,7 +1,4 @@
 package Lista1;
-
-import Library.Outputs;
-
 public class L1z3 {
 
 }

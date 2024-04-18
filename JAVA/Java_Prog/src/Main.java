@@ -18,10 +18,10 @@ public class Main {
             case 1:
                 break;
             case 2:
-                L2z1 lista2 =new L2z1();
+                //L2z1 lista2 =new L2z1();
                 break;
             case 3:
-                L3z1 Lista3 = new L3z1();
+                //L3z1 Lista3 = new L3z1();
                 break;
             case 4:
                 L4z1 Lista4 = new L4z1();
