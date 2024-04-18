@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "J:\\listy\\.NET\\NET_Zadania_Desktop\\Lista3zad2\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{DF906578-EAD2-4514-9AFF-B7CEC2021AAD}|Lista3zad2\\Lista3zad2.csproj|j:\\listy\\.net\\net_zadania_desktop\\lista3zad2\\lista3zad2\\point.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DF906578-EAD2-4514-9AFF-B7CEC2021AAD}|Lista3zad2\\Lista3zad2.csproj|solutionrelative:lista3zad2\\point.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{DF906578-EAD2-4514-9AFF-B7CEC2021AAD}|Lista3zad2\\Lista3zad2.csproj|J:\\listy\\.NET\\NET_Zadania_Desktop\\Lista3zad2\\lista3zad2\\form3.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DF906578-EAD2-4514-9AFF-B7CEC2021AAD}|Lista3zad2\\Lista3zad2.csproj|solutionrelative:lista3zad2\\form3.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DF906578-EAD2-4514-9AFF-B7CEC2021AAD}|Lista3zad2\\Lista3zad2.csproj|J:\\listy\\.NET\\NET_Zadania_Desktop\\Lista3zad2\\lista3zad2\\form3.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{DF906578-EAD2-4514-9AFF-B7CEC2021AAD}|Lista3zad2\\Lista3zad2.csproj|solutionrelative:lista3zad2\\form3.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{DF906578-EAD2-4514-9AFF-B7CEC2021AAD}|Lista3zad2\\Lista3zad2.csproj|J:\\listy\\.NET\\NET_Zadania_Desktop\\Lista3zad2\\lista3zad2\\form3.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -23,16 +23,16 @@
       "RelativeMoniker": "D:0:0:{DF906578-EAD2-4514-9AFF-B7CEC2021AAD}|Lista3zad2\\Lista3zad2.csproj|solutionrelative:lista3zad2\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{DF906578-EAD2-4514-9AFF-B7CEC2021AAD}|Lista3zad2\\Lista3zad2.csproj|j:\\listy\\.net\\net_zadania_desktop\\lista3zad2\\lista3zad2\\point.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DF906578-EAD2-4514-9AFF-B7CEC2021AAD}|Lista3zad2\\Lista3zad2.csproj|solutionrelative:lista3zad2\\point.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{DF906578-EAD2-4514-9AFF-B7CEC2021AAD}|Lista3zad2\\Lista3zad2.csproj|J:\\listy\\.NET\\NET_Zadania_Desktop\\Lista3zad2\\lista3zad2\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{DF906578-EAD2-4514-9AFF-B7CEC2021AAD}|Lista3zad2\\Lista3zad2.csproj|solutionrelative:lista3zad2\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{DF906578-EAD2-4514-9AFF-B7CEC2021AAD}|Lista3zad2\\Lista3zad2.csproj|J:\\listy\\.NET\\NET_Zadania_Desktop\\Lista3zad2\\lista3zad2\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{DF906578-EAD2-4514-9AFF-B7CEC2021AAD}|Lista3zad2\\Lista3zad2.csproj|solutionrelative:lista3zad2\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DF906578-EAD2-4514-9AFF-B7CEC2021AAD}|Lista3zad2\\Lista3zad2.csproj|J:\\listy\\.NET\\NET_Zadania_Desktop\\Lista3zad2\\lista3zad2\\form3.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{DF906578-EAD2-4514-9AFF-B7CEC2021AAD}|Lista3zad2\\Lista3zad2.csproj|solutionrelative:lista3zad2\\form3.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{DF906578-EAD2-4514-9AFF-B7CEC2021AAD}|Lista3zad2\\Lista3zad2.csproj|J:\\listy\\.NET\\NET_Zadania_Desktop\\Lista3zad2\\lista3zad2\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -46,17 +46,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 5,
               "Title": "Point.cs",
               "DocumentMoniker": "J:\\listy\\.NET\\NET_Zadania_Desktop\\Lista3zad2\\Lista3zad2\\Point.cs",
               "RelativeDocumentMoniker": "Lista3zad2\\Point.cs",
-              "ToolTip": "J:\\listy\\.NET\\NET_Zadania_Desktop\\Lista3zad2\\Lista3zad2\\Point.cs",
-              "RelativeToolTip": "Lista3zad2\\Point.cs",
-              "ViewState": "AQIAADgAAAAAAAAAAAAUwFAAAAAaAAAA",
+              "ToolTip": "J:\\listy\\.NET\\NET_Zadania_Desktop\\Lista3zad2\\Lista3zad2\\Point.cs*",
+              "RelativeToolTip": "Lista3zad2\\Point.cs*",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAqwA4AAAAWAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-03T22:40:11.136Z",
               "IsPinned": true,
@@ -72,19 +72,21 @@
               "RelativeToolTip": "Lista3zad2\\Form3.Designer.cs",
               "ViewState": "AQIAADMAAAAAAAAAAAAawEkAAABNAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-05T00:46:30.538Z"
+              "WhenOpened": "2024-04-05T00:46:30.538Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Form3.cs",
               "DocumentMoniker": "J:\\listy\\.NET\\NET_Zadania_Desktop\\Lista3zad2\\Lista3zad2\\Form3.cs",
               "RelativeDocumentMoniker": "Lista3zad2\\Form3.cs",
               "ToolTip": "J:\\listy\\.NET\\NET_Zadania_Desktop\\Lista3zad2\\Lista3zad2\\Form3.cs",
               "RelativeToolTip": "Lista3zad2\\Form3.cs",
-              "ViewState": "AQIAABMAAAAAAAAAAAAwwHMAAAAeAAAA",
+              "ViewState": "AQIAAB8AAAAAAAAAAAA0wI4AAAAMAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-04T19:48:40.786Z"
+              "WhenOpened": "2024-04-04T19:48:40.786Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -96,7 +98,8 @@
               "RelativeToolTip": "Lista3zad2\\Form1.Designer.cs",
               "ViewState": "AQIAAE8AAAAAAAAAAAAcwAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-04T19:38:55.862Z"
+              "WhenOpened": "2024-04-04T19:38:55.862Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -106,9 +109,10 @@
               "RelativeDocumentMoniker": "Lista3zad2\\Form1.cs",
               "ToolTip": "J:\\listy\\.NET\\NET_Zadania_Desktop\\Lista3zad2\\Lista3zad2\\Form1.cs",
               "RelativeToolTip": "Lista3zad2\\Form1.cs",
-              "ViewState": "AQIAAA8AAAAAAAAAAAAywBYAAAAYAAAA",
+              "ViewState": "AQIAAAwAAAAAAAAAAAA/wBYAAAAYAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-03T21:38:55.209Z"
+              "WhenOpened": "2024-04-03T21:38:55.209Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -118,42 +122,46 @@
               "RelativeDocumentMoniker": "Lista3zad2\\Form2.cs",
               "ToolTip": "J:\\listy\\.NET\\NET_Zadania_Desktop\\Lista3zad2\\Lista3zad2\\Form2.cs",
               "RelativeToolTip": "Lista3zad2\\Form2.cs",
-              "ViewState": "AQIAAFsAAAAAAAAAAAAswFsAAAAMAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAFsAAAAMAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-03T21:57:06.563Z"
+              "WhenOpened": "2024-04-03T21:57:06.563Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "Form2.cs [Projekt]",
               "DocumentMoniker": "J:\\listy\\.NET\\NET_Zadania_Desktop\\Lista3zad2\\Lista3zad2\\Form2.cs",
               "RelativeDocumentMoniker": "Lista3zad2\\Form2.cs",
               "ToolTip": "J:\\listy\\.NET\\NET_Zadania_Desktop\\Lista3zad2\\Lista3zad2\\Form2.cs [Projekt]",
               "RelativeToolTip": "Lista3zad2\\Form2.cs [Projekt]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-03T21:36:49.09Z"
+              "WhenOpened": "2024-04-03T21:36:49.09Z",
+              "EditorCaption": " [Projekt]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 1,
               "Title": "Form3.cs [Projekt]",
               "DocumentMoniker": "J:\\listy\\.NET\\NET_Zadania_Desktop\\Lista3zad2\\Lista3zad2\\Form3.cs",
               "RelativeDocumentMoniker": "Lista3zad2\\Form3.cs",
               "ToolTip": "J:\\listy\\.NET\\NET_Zadania_Desktop\\Lista3zad2\\Lista3zad2\\Form3.cs [Projekt]",
               "RelativeToolTip": "Lista3zad2\\Form3.cs [Projekt]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-04T20:40:27.967Z"
+              "WhenOpened": "2024-04-04T20:40:27.967Z",
+              "EditorCaption": " [Projekt]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "Form1.cs [Projekt]",
               "DocumentMoniker": "J:\\listy\\.NET\\NET_Zadania_Desktop\\Lista3zad2\\Lista3zad2\\Form1.cs",
               "RelativeDocumentMoniker": "Lista3zad2\\Form1.cs",
               "ToolTip": "J:\\listy\\.NET\\NET_Zadania_Desktop\\Lista3zad2\\Lista3zad2\\Form1.cs [Projekt]",
               "RelativeToolTip": "Lista3zad2\\Form1.cs [Projekt]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-03T21:05:57.51Z"
+              "WhenOpened": "2024-04-03T21:05:57.51Z",
+              "EditorCaption": " [Projekt]"
             }
           ]
         }

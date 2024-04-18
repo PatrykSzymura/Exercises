@@ -1,0 +1,11 @@
+J:\listy\.NET\NET_Zadania_Desktop\TotalPainComander\TotalPainComander\bin\Debug\TotalPainComander.exe.config
+J:\listy\.NET\NET_Zadania_Desktop\TotalPainComander\TotalPainComander\bin\Debug\TotalPainComander.exe
+J:\listy\.NET\NET_Zadania_Desktop\TotalPainComander\TotalPainComander\bin\Debug\TotalPainComander.pdb
+J:\listy\.NET\NET_Zadania_Desktop\TotalPainComander\TotalPainComander\obj\Debug\TotalPainComander.csproj.AssemblyReference.cache
+J:\listy\.NET\NET_Zadania_Desktop\TotalPainComander\TotalPainComander\obj\Debug\TotalPainComander.Form1.resources
+J:\listy\.NET\NET_Zadania_Desktop\TotalPainComander\TotalPainComander\obj\Debug\TotalPainComander.Panel.resources
+J:\listy\.NET\NET_Zadania_Desktop\TotalPainComander\TotalPainComander\obj\Debug\TotalPainComander.Properties.Resources.resources
+J:\listy\.NET\NET_Zadania_Desktop\TotalPainComander\TotalPainComander\obj\Debug\TotalPainComander.csproj.GenerateResource.cache
+J:\listy\.NET\NET_Zadania_Desktop\TotalPainComander\TotalPainComander\obj\Debug\TotalPainComander.csproj.CoreCompileInputs.cache
+J:\listy\.NET\NET_Zadania_Desktop\TotalPainComander\TotalPainComander\obj\Debug\TotalPainComander.exe
+J:\listy\.NET\NET_Zadania_Desktop\TotalPainComander\TotalPainComander\obj\Debug\TotalPainComander.pdb
