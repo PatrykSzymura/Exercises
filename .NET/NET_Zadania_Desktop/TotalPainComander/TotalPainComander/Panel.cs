@@ -1,13 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+
 
 namespace TotalPainComander
 {
@@ -17,6 +11,7 @@ namespace TotalPainComander
         {
             InitializeComponent();
             this.groupBox1.Text = GroupName;
+            
         }
 
         private int GetDriveUsagePercentage(string driveLetter)
@@ -49,7 +44,6 @@ namespace TotalPainComander
                 Data = "?/?";
             return Data;
         }
-
 
         private void btnn_GoInto_Click(object sender, EventArgs e)
         {
