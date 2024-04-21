@@ -1,3 +1,4 @@
+import Library.Tester;
 import Lista1.L1z2;
 import Lista1.L1z1;
 import Lista2.L2z1;
@@ -15,6 +16,9 @@ public class Main {
         Task = (Task > 0) ? Task : (Task * (-1));
 
         switch (Task){
+            case 12:
+                //new Tester();
+                break;
             case 1:
                 break;
             case 2:
