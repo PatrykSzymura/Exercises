@@ -1,0 +1,10 @@
+C:\Users\Admin\source\repos\Lista 8\Lista 8\bin\Debug\Lista 8.exe.config
+C:\Users\Admin\source\repos\Lista 8\Lista 8\bin\Debug\Lista 8.exe
+C:\Users\Admin\source\repos\Lista 8\Lista 8\bin\Debug\Lista 8.pdb
+C:\Users\Admin\source\repos\Lista 8\Lista 8\obj\Debug\Lista 8.csproj.AssemblyReference.cache
+C:\Users\Admin\source\repos\Lista 8\Lista 8\obj\Debug\Lista_8.Form1.resources
+C:\Users\Admin\source\repos\Lista 8\Lista 8\obj\Debug\Lista_8.Properties.Resources.resources
+C:\Users\Admin\source\repos\Lista 8\Lista 8\obj\Debug\Lista 8.csproj.GenerateResource.cache
+C:\Users\Admin\source\repos\Lista 8\Lista 8\obj\Debug\Lista 8.csproj.CoreCompileInputs.cache
+C:\Users\Admin\source\repos\Lista 8\Lista 8\obj\Debug\Lista 8.exe
+C:\Users\Admin\source\repos\Lista 8\Lista 8\obj\Debug\Lista 8.pdb
